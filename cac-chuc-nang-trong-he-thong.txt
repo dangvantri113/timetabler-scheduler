@@ -1,0 +1,15 @@
+Menu:
+ Đăng nhập
+ Quản lý người dùng
+ Chức năng cập nhật thông tin:
+o Cập nhật danh mục phòng học
+o Cập nhật danh sách lớp
+o Cập nhật danh sách giáo viên
+o Cập nhật danh sách môn học
+ Chức năng thiết lập TKB
+o Thiết lập TKB
+o Xem TKB lớp học
+o Xem TKB giáo viên
+ Xuất TKB ra excel:
+o Xuất TKB lớp học
+o Xuất TKB giáo viên
