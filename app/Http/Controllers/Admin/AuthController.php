@@ -22,7 +22,7 @@ class AuthController extends Controller
     {
         $data = [];
         if (session('isLogin') === true) {
-            redirect('/dashboard');
+            return redirect('/admin/dashboard');
         }
         $data['title'] = 'Login';
         $data['breadcrumb'] = $this->getBreadcrumb();
@@ -33,16 +33,20 @@ class AuthController extends Controller
     public function doLogin(Request $request)
     {
         if (session('isLogin') === true) {
-            redirect('/dashboard');
+            return redirect('/admin/dashboard');
         }
+//        dd($this->checkLogin($request->email, $request->password));
         if($this->checkLogin($request->email, $request->password)){
             session(['isLogin'=>true]);
+            return redirect('/admin/dashboard');
         }
         return view('admin.login', ['error_login_message'=> 'Login not success']);
     }
     private function checkLogin($email, $password){
         $user = Admin::where('email',$email)->first();
         if (!isset($user)) return false;
-        if(Hash::check($password, $user->password)); return true;
+        if(Hash::check($password, $user->password)) {
+            return true;
+        }
     }
 }

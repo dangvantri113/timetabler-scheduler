@@ -12,19 +12,27 @@ class AdminController extends Controller
 {
     public function __construct()
     {
+
+    }
+
+    public function index(){
         $this->setBreadcrumb([
             'dashboard' => '/admin/dashboard',
-            'add-admin' => '/admin/add-admin'
-        ]);
+            ]);
+        $data = [];
+        $data['title'] = 'Admin Dashboard';
+        $data['breadcrumb'] = $this->getBreadcrumb();
+        return view('admin.dashboard', $data);
     }
 
     public function show()
     {
+        $this->setBreadcrumb([
+            'dashboard' => '/admin/dashboard',
+            'add-admin' => '/admin/add-admin'
+        ]);
         $data = [];
-        if (session('isLogin') === true) {
-            redirect('/dashboard');
-        }
-        $data['title'] = 'Login';
+        $data['title'] = 'Add Admin';
         $data['breadcrumb'] = $this->getBreadcrumb();
         return view('admin.admins', $data);
     }
@@ -35,6 +43,10 @@ class AdminController extends Controller
 //        if (!session('isLogin')) {
 //            redirect('/');
 //        }
+        $this->setBreadcrumb([
+            'dashboard' => '/admin/dashboard',
+            'add-admin' => '/admin/add-admin'
+        ]);
         $admin = new Admin;
         $admin->name = $request->name;
         $admin->email = $request->email;

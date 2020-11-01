@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+}
+
+body form .field-group label {
+  display: inline-block;
+  width: 80px;
+}
+
+.breadcrumb {
+  display: block;
+  height: 30px;
+  padding-left: 50px;
+  background-color: cornflowerblue;
+  color: #1a202c;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+}
+
+.breadcrumb a:after {
+  content: " >> ";
+}
+
+.timetable td {
+  border: 1px solid black;
+  min-width: 100px;
+  min-height: 30px;
+  display: inline-block;
+}
+
+.list-container {
+  width: 100%;
+  border-top: solid 1px black;
+  margin-top: 10px;
+}
+

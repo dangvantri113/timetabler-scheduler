@@ -6,7 +6,7 @@
     </div>
     <div class="field-group">
         <label id="lb-password">Password</label>
-        <input type="password" name="password" id="ip-email" required>
+        <input type="password" name="password" id="ip-email">
     </div>
     <div class="error">
         <span id="error-login-message"></span>

@@ -3,10 +3,10 @@
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/admin.css">
 @endsection
-
 @section('content')
     <div class="admin-content">
         @include('component.side-bar')
-        @include('component.add-admin-form')
+        @include('component.admin-container')
     </div>
+
 @endsection

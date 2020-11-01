@@ -43,7 +43,7 @@ CREATE TABLE `admins` (
 -- Cấu trúc bảng cho bảng `classes`
 --
 
-CREATE TABLE `classes` (
+CREATE TABLE `klasses` (
   `id` int(6) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL,
   `number_student` int(3) DEFAULT NULL,
@@ -95,7 +95,7 @@ CREATE TABLE `teachers` (
   `gender` tinyint(1) DEFAULT NULL,
   `birthday` datetime DEFAULT NULL,
   `position` enum('HEAD','SUBHEAD','CHARGE') DEFAULT NULL,
-  `class_id` int(6) UNSIGNED DEFAULT NULL,
+  `klass_id` int(6) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `modified_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()

@@ -6,7 +6,6 @@
     </div>
     <label id="lb-name">Name</label>
     <input type="name" name="name" id="ip-name" required>
-    </div>
     <div class="error">
         <span id="error-add-admin-message"></span>
     </div>
