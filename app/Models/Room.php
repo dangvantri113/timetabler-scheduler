@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Teacher extends Model
+class Room extends Model
 {
-    public function klass(){
-        return $this->hasOne(Klass::class);
+    public function klasses(){
+        return $this->belongsToMany(Klass::class);
     }
 }

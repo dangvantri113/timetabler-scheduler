@@ -1,21 +1,151 @@
 .admin-content {
     display: flex;
+    height: 100%;
+
+    .dashboard {
+        .menu-item {
+            font-size: 2rem;
+            display: inline-block;
+            width: 300px;
+            height: fit-content;
+            border: 1px solid black;
+            margin: 10px;
+            padding: 4px;
+            background-color: #1c7430;
+
+            a {
+                text-decoration: none;
+                color: #fff;
+
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+    }
+
     .side-bar {
         padding: 10px;
         background-color: #1a202c;
         color: #ddd;
+
         ul {
             margin-block-start: 0;
             list-style: none;
             padding-inline-start: 0;
-            li a{
+
+            li a {
                 text-decoration: none;
                 font-weight: bold;
                 color: #ddd;
             }
         }
     }
-   .add-message {
-       color: green;
-   }
+
+    .form-container {
+        padding-left: 10px;
+
+        form {
+            width: fit-content;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 3px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 10px;
+
+            .field-group {
+                margin-top: 5px;
+
+                label {
+                    display: inline-block;
+                    text-transform: capitalize;
+                    text-align: left;
+                    margin-right: 5px;
+                    width: 80px;
+                }
+
+                select {
+                    width: 200px;
+                    option {
+                        text-transform: capitalize;
+                    }
+                }
+
+                input[type='submit'] {
+                    background-color: darkgreen;
+                    color: #fff;
+                    border: 0;
+                    padding: 5px;
+                }
+                input[type='radio'] {
+                    top: -3px;
+                    position: relative;
+                    margin-right: 4px;
+                }
+            }
+
+            .checkbox-container {
+                div {
+                    display: inline-block;
+
+                    label {
+                        margin-left: 3px;
+                    }
+                }
+
+                max-width: 400px;
+            }
+        }
+    }
+
+    .list-container {
+        padding: 10px;
+        table {
+            tr {
+                td,th {
+                    border: solid 1px black;
+                    padding: 5px;
+                }
+                th {
+                    text-align: center !important;
+                }
+            }
+        }
+        .action {
+            a {
+                display: inline-block;
+                width: 60px;
+                text-align: center;
+                text-decoration: none;
+                color: #fff;
+            }
+
+            a:hover {
+                color: darkblue;
+            }
+
+            .edit {
+                background-color: #1c7430;
+            }
+
+            .delete {
+                background-color: #dc3545;
+            }
+        }
+        .pagination {
+            font-size: 1rem;
+        }
+    }
+
+    .timetable {
+        margin-top: 10px;
+    }
+
+    .add-message {
+        color: green;
+    }
+
 }

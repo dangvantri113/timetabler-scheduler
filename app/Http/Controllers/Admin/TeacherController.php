@@ -20,7 +20,7 @@ class TeacherController extends Controller
         $data['title'] = 'Manage Teacher';
         $data['breadcrumb'] = $this->getBreadcrumb();
 
-        $teachers = Teacher::with('klass')->get();
+        $teachers = Teacher::paginate(10);
         $data['teachers'] = $teachers;
         return view('admin.teacher', $data);
     }
@@ -50,7 +50,6 @@ class TeacherController extends Controller
         $teacher->email = $request->email;
         $teacher->birthday = $request->birthday;
         $teacher->gender = $request->gender;
-        $teacher->class_id = $request->class;
         $teacher->position = $request->position;
         $teacher->save();
         return redirect('/admin/teacher')->with('message','Add Teacher Success');

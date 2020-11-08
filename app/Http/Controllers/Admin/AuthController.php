@@ -32,20 +32,31 @@ class AuthController extends Controller
 
     public function doLogin(Request $request)
     {
-        if (session('isLogin') === true) {
+        if (session('isLogin') === true)
+        {
             return redirect('/admin/dashboard');
         }
-//        dd($this->checkLogin($request->email, $request->password));
-        if($this->checkLogin($request->email, $request->password)){
-            session(['isLogin'=>true]);
+        if($this->checkLogin($request->email, $request->password))
+        {
             return redirect('/admin/dashboard');
         }
+
         return view('admin.login', ['error_login_message'=> 'Login not success']);
     }
-    private function checkLogin($email, $password){
-        $user = Admin::where('email',$email)->first();
-        if (!isset($user)) return false;
-        if(Hash::check($password, $user->password)) {
+    private function checkLogin($email, $password)
+    {
+        $user = Admin::where('email', $email)->first();
+
+        if (!isset($user))
+        {
+            return false;
+        }
+
+        if(Hash::check($password, $user->password))
+        {
+            session(['isLogin'=>true]);
+            session(['user_login_id'=>$user->id]);
+
             return true;
         }
     }

@@ -12,49 +12,57 @@
             @if(session('message'))
                 <span class="add-message">{{session('message')}}</span>
             @endif
-            @include('component.teacher.add')
-            @include('component.teacher.list')
+            @include('component.klass.add')
+            @include('component.klass.list')
         </div>
-    </div>    <div id="delete-modal" class="modal" tabindex="-1" role="dialog">
+    </div>
+    <div id="delete-modal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Confirm Delete Subject</h5>
+                    <h5 class="modal-title">Confirm Delete Klass</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Do you want delete this subject?</p>
+                    <p>Do you want delete this klass?</p>
                 </div>
-                <form id="delete-subject-form" method="post" action="/admin/subject/delete" hidden>
+                <form id="delete-klass-form" method="post" action="/admin/klass/delete" hidden>
                     @csrf
                     <input type="number" name="id" id="ip-delete-id">
                 </form>
                 <div class="modal-footer">
-                    <button type="submit" form="delete-subject-form" class="btn btn-primary">Yes</button>
+                    <button type="submit" form="delete-klass-form" class="btn btn-primary">Yes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        function editSubject(id)
+        function editKlass(id)
         {
-            let formEdit = document.getElementById('form-subject');
-            formEdit.action = '/admin/subject/edit';
+            let formEdit = document.getElementById('form-klass');
+            formEdit.action = '/admin/klass/edit';
             let ipID = document.getElementById('ip-id');
             let ipName = document.getElementById('ip-name');
-            let ipHours = document.getElementById('ip-number-hours');
+            let ipStudents = document.getElementById('ip-number-students');
+            let ipRoom = document.getElementById('sl-room');
+            let ipTeacher = document.getElementById('sl-teacher');
 
-            let subjectName = document.querySelector('#sb_'+id+' .subject-name').innerHTML;
-            let subjectHours = document.querySelector('#sb_'+id+' .subject-hours').innerHTML;
+            let klassName = document.querySelector('#sb_'+id+' .klass-name').innerHTML;
+            let klassStudents = document.querySelector('#sb_'+id+' .klass-students').innerHTML;
+            let klassTeacher = document.querySelector('#sb_'+id+' .klass-teacher').id;
+            let klassRoom = document.querySelector('#sb_'+id+' .klass-room').id;
 
             ipID.value = id;
-            ipName.value = subjectName;
-            ipHours.value = subjectHours;
+            ipName.value = klassName;
+            ipStudents.value = klassStudents;
+            ipRoom.value = klassRoom.slice(5);
+            ipTeacher.value = klassTeacher.slice(8);
+            // debugger;
         }
-        function deleteSubject(id){
+        function deleteKlass(id){
             let ipDeleteID = document.getElementById('ip-delete-id');
             ipDeleteID.value = id;
             $('#delete-modal').modal('show');
@@ -66,5 +74,3 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="/js/bootstrap/bootstrap.min.js"></script>
 @endsection
-
-

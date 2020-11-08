@@ -1,5 +1,28 @@
 .admin-content {
   display: flex;
+  height: 100%;
+}
+
+.admin-content .dashboard .menu-item {
+  font-size: 2rem;
+  display: inline-block;
+  width: 300px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 4px;
+  background-color: #1c7430;
+}
+
+.admin-content .dashboard .menu-item a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.admin-content .dashboard .menu-item a i {
+  margin-right: 10px;
 }
 
 .admin-content .side-bar {
@@ -20,6 +43,110 @@
   text-decoration: none;
   font-weight: bold;
   color: #ddd;
+}
+
+.admin-content .form-container {
+  padding-left: 10px;
+}
+
+.admin-content .form-container form {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 3px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+
+.admin-content .form-container form .field-group {
+  margin-top: 5px;
+}
+
+.admin-content .form-container form .field-group label {
+  display: inline-block;
+  text-transform: capitalize;
+  text-align: left;
+  margin-right: 5px;
+  width: 80px;
+}
+
+.admin-content .form-container form .field-group select {
+  width: 200px;
+}
+
+.admin-content .form-container form .field-group select option {
+  text-transform: capitalize;
+}
+
+.admin-content .form-container form .field-group input[type=submit] {
+  background-color: darkgreen;
+  color: #fff;
+  border: 0;
+  padding: 5px;
+}
+
+.admin-content .form-container form .field-group input[type=radio] {
+  top: -3px;
+  position: relative;
+  margin-right: 4px;
+}
+
+.admin-content .form-container form .checkbox-container {
+  max-width: 400px;
+}
+
+.admin-content .form-container form .checkbox-container div {
+  display: inline-block;
+}
+
+.admin-content .form-container form .checkbox-container div label {
+  margin-left: 3px;
+}
+
+.admin-content .list-container {
+  padding: 10px;
+}
+
+.admin-content .list-container table tr td,
+.admin-content .list-container table tr th {
+  border: solid 1px black;
+  padding: 5px;
+}
+
+.admin-content .list-container table tr th {
+  text-align: center !important;
+}
+
+.admin-content .list-container .action a {
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.admin-content .list-container .action a:hover {
+  color: darkblue;
+}
+
+.admin-content .list-container .action .edit {
+  background-color: #1c7430;
+}
+
+.admin-content .list-container .action .delete {
+  background-color: #dc3545;
+}
+
+.admin-content .list-container .pagination {
+  font-size: 1rem;
+}
+
+.admin-content .timetable {
+  margin-top: 10px;
 }
 
 .admin-content .add-message {

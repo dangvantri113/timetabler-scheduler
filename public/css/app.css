@@ -1,38 +1,99 @@
-body {
-  margin: 0;
+html {
+  width: 100%;
+  height: 100%;
 }
 
-body form .field-group label {
+html body {
+  margin: 0;
+  height: 100%;
+}
+
+html body .form-container {
+  padding-left: 10px;
+}
+
+html body .form-container form {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+}
+
+html body .form-container form .field-group {
+  display: flex;
+  align-items: center;
+}
+
+html body .form-container form .field-group label {
   display: inline-block;
   width: 80px;
 }
 
-.breadcrumb {
-  display: block;
-  height: 30px;
-  padding-left: 50px;
-  background-color: cornflowerblue;
-  color: #1a202c;
+html body .form-container form .field-group input[type=text],
+html body .form-container form .field-group input[type=password],
+html body .form-container form .field-group input[type=date],
+html body .form-container form .field-group input[type=email],
+html body .form-container form .field-group input[type=number],
+html body .form-container form .field-group input[type=name] {
+  width: 200px;
 }
 
-.breadcrumb a {
+html body .form-container form .field-group .checkbox-container {
+  width: 400px;
+  text-align: left;
+}
+
+html body .form-container form .field-group .checkbox-container label {
+  width: 160px;
+}
+
+html .breadcrumb {
+  display: block;
+  padding-left: 50px;
+  background-color: darkgreen;
+  color: #1a202c;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+html .breadcrumb a {
+  color: #fff;
   text-decoration: none;
 }
 
-.breadcrumb a:after {
+html .breadcrumb a:after {
   content: " >> ";
 }
 
-.timetable td {
-  border: 1px solid black;
-  min-width: 100px;
-  min-height: 30px;
-  display: inline-block;
-}
-
-.list-container {
+html .list-container {
   width: 100%;
   border-top: solid 1px black;
   margin-top: 10px;
+}
+
+html .list-container .pagination {
+  display: flex;
+  margin-top: 20px;
+  text-align: center;
+}
+
+html .list-container .pagination .pagination-item {
+  display: inline-block;
+  width: 20px;
+  background-color: whitesmoke;
+  color: black;
+}
+
+html .list-container .pagination .next,
+html .list-container .pagination .pre {
+  width: 40px;
+}
+
+html .list-container .pagination .active {
+  background-color: cornflowerblue;
+}
+
+html .list-container .pagination :hover {
+  text-decoration: none;
 }
 

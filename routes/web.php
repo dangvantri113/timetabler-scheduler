@@ -3,6 +3,10 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\TeacherController;
+use App\Http\Controllers\Admin\SubjectController;
+use App\Http\Controllers\Admin\RoomController;
+use App\Http\Controllers\Admin\KlassController;
+use App\Http\Controllers\Admin\TimeTableController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +33,17 @@ Route::post('/admin/add-admin',[AdminController::class,'doAddAdmin']);
 Route::get('/admin/teacher',[TeacherController::class,'list']);
 Route::post('/admin/teacher/add',[TeacherController::class,'add']);
 Route::get('/admin/teacher/edit',[TeacherController::class,'edit']);
+Route::get('/admin/teacher/delete',[TeacherController::class,'delete']);
+Route::get('/admin/subject',[SubjectController::class,'list']);
+Route::post('/admin/subject/add',[SubjectController::class,'add']);
+Route::post('/admin/subject/edit',[SubjectController::class,'edit']);
+Route::post('/admin/subject/delete',[SubjectController::class,'delete']);
+Route::get('/admin/room',[RoomController::class,'list']);
+Route::post('/admin/room/add',[RoomController::class,'add']);
+Route::post('/admin/room/edit',[RoomController::class,'edit']);
+Route::post('/admin/room/delete',[RoomController::class,'delete']);
+Route::get('/admin/klass',[KlassController::class,'list']);
+Route::post('/admin/klass/add',[KlassController::class,'add']);
+Route::post('/admin/klass/edit',[KlassController::class,'edit']);
+Route::post('/admin/klass/delete',[KlassController::class,'delete']);
+Route::get('/admin/timetable',[TimeTableController::class,'index']);

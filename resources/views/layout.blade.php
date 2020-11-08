@@ -12,4 +12,5 @@
 @include('component.breadcrumb')
 @yield('content')
 </body>
+@yield('load-js')
 </html>

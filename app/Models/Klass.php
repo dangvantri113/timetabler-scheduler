@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Klass extends Model
 {
     public function teacher(){
-        return $this->hasOne(Teacher::class);
+        return $this->belongsTo(Teacher::class);
+    }
+    public function room(){
+        return $this->belongsTo(Room::class);
     }
 }

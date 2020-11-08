@@ -12,10 +12,11 @@
             @if(session('message'))
                 <span class="add-message">{{session('message')}}</span>
             @endif
-            @include('component.teacher.add')
-            @include('component.teacher.list')
+            @include('component.subject.add')
+            @include('component.subject.list')
         </div>
-    </div>    <div id="delete-modal" class="modal" tabindex="-1" role="dialog">
+    </div>
+    <div id="delete-modal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -60,11 +61,10 @@
             $('#delete-modal').modal('show');
         }
     </script>
+    </script>
 @endsection
 @section('load-js')
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="/js/bootstrap/bootstrap.min.js"></script>
 @endsection
-
-
