@@ -1,6 +1,7 @@
 <div class="form-container">
     <form id="form-teacher" action="/admin/teacher/add" method="post">
         @csrf
+        <input type="number" name="id" id="ip-id" value="-1" hidden>
         <div class="field-group">
             <label id="lb-email">Email</label>
             <input type="email" name="email" id="ip-email" required>
@@ -23,25 +24,17 @@
         <div class="field-group">
             <label>Môn dạy</label>
             <div class="checkbox-container">
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Toán</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Tiếng Việt</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Tiếng Anh</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Đạo đức</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Tự nhiên xã hội</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Lịch sử</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Địa lý</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Khoa Học</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Tin</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Thể dục</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Nhạc</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Vẽ</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Công nghệ</label></div>
-                <div><input class="cb" type="checkbox" name="subjects[]"><label>Tiếng Nhật</label></div>
+                @foreach($subjects as $subject)
+                    <div>
+                        <input id="cb_subject_{{$subject->id}}" class="cb" type="checkbox" name="subjects[]" value="{{$subject->id}}">
+                        <label>{{$subject->name}}</label>
+                    </div>
+                @endforeach
             </div>
         </div>
         <div class="field-group">
             <label>Chức vụ</label>
-            <select name="position" id="sl-class">
+            <select name="position" id="sl-position">
                 <option value="HEAD">Hiệu Trưởng</option>
                 <option value="SUBHEAD">Hiệu Phó</option>
                 <option value="CHARGE">Tổng Phụ Trách</option>

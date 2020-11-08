@@ -11,7 +11,16 @@ use Illuminate\Support\Facades\Hash;
 
 class SubjectController extends Controller
 {
+    public function __construct()
+    {
+    }
+
     public function list(){
+
+
+        if(session('isLogin')!=true){
+            abort(404);
+        }
         $this->setBreadcrumb([
             'dashboard' => '/admin/dashboard',
             'subject' => '/admin/subject',

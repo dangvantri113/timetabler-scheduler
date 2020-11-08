@@ -10,9 +10,8 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    public function __construct()
+    public function __construct(Request $request)
     {
-
     }
 
     public function index(){
@@ -40,9 +39,9 @@ class AdminController extends Controller
 
     public function doAddAdmin(Request $request)
     {
-//        if (!session('isLogin')) {
-//            redirect('/');
-//        }
+        if (!session('isLogin')) {
+            redirect('/');
+        }
         $this->setBreadcrumb([
             'dashboard' => '/admin/dashboard',
             'add-admin' => '/admin/add-admin'

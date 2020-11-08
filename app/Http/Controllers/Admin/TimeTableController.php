@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Hash;
 
 class TimeTableController extends Controller
 {
+    public function __construct()
+    {
+        if(session('isLogin')!=true){
+            abort(404);
+        }
+    }
+
     public function index(){
         $title = "Manage Timetable";
         $data['title'] = $title;

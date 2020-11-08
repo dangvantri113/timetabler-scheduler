@@ -1,4 +1,4 @@
-<form action="/login" method="post">
+<form id="login-form" class="form-container" action="/login" method="post">
     @csrf
     <div class="field-group">
         <label id="lb-email">Email</label>
@@ -8,8 +8,11 @@
         <label id="lb-password">Password</label>
         <input type="password" name="password" id="ip-email">
     </div>
-    <div class="error">
-        <span id="error-login-message"></span>
+    <div class="error text-danger">
+        <span id="error-login-message">{{session('error_login_message')}}</span>
     </div>
-    <input type="submit" value="LOGIN">
+    <div class="field-group">
+        <label></label>
+        <input type="submit" value="LOGIN">
+    </div>
 </form>

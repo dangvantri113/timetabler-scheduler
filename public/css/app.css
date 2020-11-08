@@ -47,6 +47,19 @@ html body .form-container form .field-group .checkbox-container label {
   width: 160px;
 }
 
+html body #login-form {
+  width: 400px;
+  height: 180px;
+  margin: 50px auto;
+  border: black 2px solid;
+  padding-top: 20px;
+}
+
+html body #login-form label {
+  width: 100px;
+  margin-right: 10px;
+}
+
 html .breadcrumb {
   display: block;
   padding-left: 50px;

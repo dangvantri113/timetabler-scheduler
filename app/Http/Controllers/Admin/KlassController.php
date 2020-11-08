@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Hash;
 
 class KlassController extends Controller
 {
+    public function __construct()
+    {
+        if(session('isLogin')!=true){
+            abort(404);
+        }
+    }
+
     public function list(){
         $this->setBreadcrumb([
             'dashboard' => '/admin/dashboard',

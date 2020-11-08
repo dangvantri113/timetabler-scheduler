@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -41,7 +42,13 @@ class AuthController extends Controller
             return redirect('/admin/dashboard');
         }
 
-        return view('admin.login', ['error_login_message'=> 'Login not success']);
+        return redirect('/login')->with( 'error_login_message','Login not success');
+    }
+
+    public function doLogout()
+    {
+        session(['isLogin'=>false]);
+        return redirect('/login');
     }
     private function checkLogin($email, $password)
     {
@@ -54,6 +61,7 @@ class AuthController extends Controller
 
         if(Hash::check($password, $user->password))
         {
+            session_start();
             session(['isLogin'=>true]);
             session(['user_login_id'=>$user->id]);
 

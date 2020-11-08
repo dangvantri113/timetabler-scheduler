@@ -14,7 +14,7 @@
                 <a href="/admin/profile"><i class="fas fa-address-card"></i>Tài Khoản</a>
             </div>
             <div class="menu-item">
-                <a href="/admin/admin"><i class="fas fa-users-cog"></i>Thêm Admin</a>
+                <a href="/admin/add-admin"><i class="fas fa-users-cog"></i>Thêm Admin</a>
             </div>
             <div class="menu-item">
                 <a href="/admin/teacher"><i class="fas fa-user"></i>Giáo Viên</a>

@@ -41,7 +41,17 @@ html {
                 }
             }
         }
-
+        #login-form {
+            width: 400px;
+            height: 180px;
+            margin: 50px auto;
+            border: black 2px solid;
+            padding-top: 20px;
+            label {
+                width: 100px;
+                margin-right: 10px;
+            }
+        }
     }
 
     .breadcrumb {

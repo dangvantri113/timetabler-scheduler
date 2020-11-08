@@ -27,12 +27,13 @@ Route::get('/search', [HomeController::class, 'search']);
 
 Route::get('/login',[AuthController::class,'login']);
 Route::post('/login',[AuthController::class,'doLogin']);
+Route::get('/logout',[AuthController::class,'doLogout']);
 Route::get('/admin/dashboard',[AdminController::class,'index']);
 Route::get('/admin/add-admin',[AdminController::class,'show']);
 Route::post('/admin/add-admin',[AdminController::class,'doAddAdmin']);
 Route::get('/admin/teacher',[TeacherController::class,'list']);
 Route::post('/admin/teacher/add',[TeacherController::class,'add']);
-Route::get('/admin/teacher/edit',[TeacherController::class,'edit']);
+Route::post('/admin/teacher/edit',[TeacherController::class,'edit']);
 Route::get('/admin/teacher/delete',[TeacherController::class,'delete']);
 Route::get('/admin/subject',[SubjectController::class,'list']);
 Route::post('/admin/subject/add',[SubjectController::class,'add']);
@@ -47,3 +48,4 @@ Route::post('/admin/klass/add',[KlassController::class,'add']);
 Route::post('/admin/klass/edit',[KlassController::class,'edit']);
 Route::post('/admin/klass/delete',[KlassController::class,'delete']);
 Route::get('/admin/timetable',[TimeTableController::class,'index']);
+

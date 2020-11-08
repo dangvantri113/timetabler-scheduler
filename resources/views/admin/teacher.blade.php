@@ -19,7 +19,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Confirm Delete Subject</h5>
+                    <h5 class="modal-title">Confirm Delete Teacher</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -27,7 +27,7 @@
                 <div class="modal-body">
                     <p>Do you want delete this subject?</p>
                 </div>
-                <form id="delete-subject-form" method="post" action="/admin/subject/delete" hidden>
+                <form id="delete-teacher-form" method="post" action="/admin/teacher/delete" hidden>
                     @csrf
                     <input type="number" name="id" id="ip-delete-id">
                 </form>
@@ -39,22 +39,45 @@
         </div>
     </div>
     <script>
-        function editSubject(id)
+        function editTeacher(id)
         {
-            let formEdit = document.getElementById('form-subject');
-            formEdit.action = '/admin/subject/edit';
+            let formEdit = document.getElementById('form-teacher');
+            formEdit.action = '/admin/teacher/edit';
             let ipID = document.getElementById('ip-id');
             let ipName = document.getElementById('ip-name');
-            let ipHours = document.getElementById('ip-number-hours');
+            let ipEmail = document.getElementById('ip-email');
+            let ipMale = document.getElementById('ip-male');
+            let ipFemale = document.getElementById('ip-female');
+            let ipBirthday = document.getElementById('ip-birthday');
+            let ipPosition = document.getElementById('sl-position');
 
-            let subjectName = document.querySelector('#sb_'+id+' .subject-name').innerHTML;
-            let subjectHours = document.querySelector('#sb_'+id+' .subject-hours').innerHTML;
+            let teacherName = document.querySelector('#tc-'+id+' .teacher-name').innerHTML;
+            let teacherEmail = document.querySelector('#tc-'+id+' .teacher-email').innerHTML;
+            let teacherBirthday = document.querySelector('#tc-'+id+' .teacher-birthday').innerHTML;
+            let teacherGender = document.querySelector('#tc-'+id+' .teacher-gender').innerHTML;
+            let teacherPosition = document.querySelector('#tc-'+id+' .teacher-position').innerHTML;
+            let teacherSubjects = document.querySelectorAll('#tc-'+id+' .subject-item');
+            debugger;
 
             ipID.value = id;
-            ipName.value = subjectName;
-            ipHours.value = subjectHours;
+            ipName.value = teacherName;
+            ipEmail.value = teacherEmail;
+            if(teacherGender == "Nam") {
+                ipMale.checked = true;
+            } else {
+                ipFemale.checked = true;
+            }
+            ipBirthday.value = teacherBirthday;
+            ipPosition.value = teacherPosition;
+
+            teacherSubjects.forEach(function (e){
+                console.log(e.className);
+                document.getElementById('cb_subject_'+e.className.slice(16)).checked = true;
+            });
+            // ipEmail.value = teacherEmail;
+            // ipEmail.value = teacherEmail;
         }
-        function deleteSubject(id){
+        function deleteTeacher(id){
             let ipDeleteID = document.getElementById('ip-delete-id');
             ipDeleteID.value = id;
             $('#delete-modal').modal('show');
