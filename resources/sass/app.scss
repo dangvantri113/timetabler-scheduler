@@ -5,6 +5,7 @@ html {
     body {
         margin: 0;
         height: 100%;
+
         .form-container {
             padding-left: 10px;
 
@@ -41,15 +42,35 @@ html {
                 }
             }
         }
+
         #login-form {
             width: 400px;
             height: 180px;
             margin: 50px auto;
-            border: black 2px solid;
+            border: grey 2px solid;
             padding-top: 20px;
+            text-align: center;
+
             label {
                 width: 100px;
                 margin-right: 10px;
+            }
+
+            input {
+                border: none;
+                background: none;
+            }
+
+            input[type='email'], input[type='password'] {
+                border-bottom: grey solid 2px;
+            }
+            input[type='submit'] {
+                background-color: grey;
+                margin-top: 10px;
+            }
+            input:focus {
+                outline: none;
+                border: none;
             }
         }
     }
@@ -76,22 +97,27 @@ html {
         width: 100%;
         border-top: solid 1px black;
         margin-top: 10px;
+
         .pagination {
             display: flex;
             margin-top: 20px;
             text-align: center;
+
             .pagination-item {
                 display: inline-block;
                 width: 20px;
                 background-color: whitesmoke;
                 color: black;
             }
+
             .next, .pre {
                 width: 40px;
             }
+
             .active {
                 background-color: cornflowerblue;
             }
+
             :hover {
                 text-decoration: none;
             }

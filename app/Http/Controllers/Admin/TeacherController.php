@@ -8,19 +8,15 @@ use App\Models\Admin;
 use App\Models\Subject;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class TeacherController extends Controller
 {
+    public function list(){
 
-    public function __construct()
-    {
         if(session('isLogin')!=true){
             abort(404);
         }
-    }
 
-    public function list(){
         $this->setBreadcrumb([
             'dashboard' => '/admin/dashboard',
             'teacher' => '/admin/teacher',
@@ -38,6 +34,11 @@ class TeacherController extends Controller
 
     public function add(Request $request)
     {
+
+        if(session('isLogin')!=true){
+            abort(404);
+        }
+
         $teacher = new Teacher;
         $teacher->name = $request->name;
         $teacher->email = $request->email;
@@ -54,6 +55,11 @@ class TeacherController extends Controller
 
     public function edit(Request $request)
     {
+
+        if(session('isLogin')!=true){
+            abort(404);
+        }
+
         $teacher = Teacher::find($request->id);
         $teacher->name = $request->name;
         $teacher->email = $request->email;

@@ -10,14 +10,10 @@ use Illuminate\Support\Facades\Hash;
 
 class RoomController extends Controller
 {
-    public function __construct()
-    {
+    public function list(){
         if(session('isLogin')!=true){
             abort(404);
         }
-    }
-
-    public function list(){
         $this->setBreadcrumb([
             'dashboard' => '/admin/dashboard',
             'room' => '/admin/room',
@@ -34,6 +30,9 @@ class RoomController extends Controller
 
     public function add(Request $request)
     {
+        if(session('isLogin')!=true){
+            abort(404);
+        }
         $room = new Room;
         $room->name = $request->name;
         $room->save();
@@ -41,6 +40,9 @@ class RoomController extends Controller
     }
     public function edit(Request $request)
     {
+        if(session('isLogin')!=true){
+            abort(404);
+        }
         $room = Room::find($request->id);
         $room->name = $request->name;
         $room->save();
@@ -49,6 +51,9 @@ class RoomController extends Controller
     }
     public function delete(Request $request)
     {
+        if(session('isLogin')!=true){
+            abort(404);
+        }
         $room = Room::find($request->id);
         $room->delete();
 

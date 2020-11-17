@@ -48,4 +48,6 @@ Route::post('/admin/klass/add',[KlassController::class,'add']);
 Route::post('/admin/klass/edit',[KlassController::class,'edit']);
 Route::post('/admin/klass/delete',[KlassController::class,'delete']);
 Route::get('/admin/timetable',[TimeTableController::class,'index']);
+Route::get('/admin/scheduling',[TimeTableController::class,'scheduling']);
+Route::post('/admin/scheduling',[TimeTableController::class,'doScheduling']);
 

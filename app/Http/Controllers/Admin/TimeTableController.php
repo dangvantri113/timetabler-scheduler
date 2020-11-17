@@ -11,16 +11,34 @@ use Illuminate\Support\Facades\Hash;
 
 class TimeTableController extends Controller
 {
-    public function __construct()
+    public function index()
     {
-        if(session('isLogin')!=true){
+        if (session('isLogin') != true) {
             abort(404);
         }
-    }
-
-    public function index(){
         $title = "Manage Timetable";
         $data['title'] = $title;
-        return view('admin.timetable',$data);
+        return view('admin.timetable', $data);
+    }
+
+    public function scheduling()
+    {
+        if (session('isLogin') != true) {
+            abort(404);
+        }
+        $title = "Scheduling";
+        $data['title'] = $title;
+
+        return view('admin.scheduling',$data);
+    }
+    public function doScheduling(Request $request)
+    {
+        if (session('isLogin') != true) {
+            abort(404);
+        }
+        $title = "Manage Timetable";
+        $data['title'] = $title;
+
+
     }
 }

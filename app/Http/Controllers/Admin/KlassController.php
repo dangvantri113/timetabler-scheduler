@@ -12,14 +12,10 @@ use Illuminate\Support\Facades\Hash;
 
 class KlassController extends Controller
 {
-    public function __construct()
-    {
+    public function list(){
         if(session('isLogin')!=true){
             abort(404);
         }
-    }
-
-    public function list(){
         $this->setBreadcrumb([
             'dashboard' => '/admin/dashboard',
             'klass' => '/admin/klass',
@@ -41,6 +37,9 @@ class KlassController extends Controller
 
     public function add(Request $request)
     {
+        if(session('isLogin')!=true){
+            abort(404);
+        }
         $klass = new Klass;
         $klass->name = $request->name;
         $klass->number_students = $request->number_students;
@@ -52,6 +51,9 @@ class KlassController extends Controller
     }
     public function edit(Request $request)
     {
+        if(session('isLogin')!=true){
+            abort(404);
+        }
         $klass = klass::find($request->id);
 
         $klass->name = $request->name;
@@ -64,6 +66,9 @@ class KlassController extends Controller
     }
     public function delete(Request $request)
     {
+        if(session('isLogin')!=true){
+            abort(404);
+        }
         $klass = klass::find($request->id);
         $klass->delete();
 

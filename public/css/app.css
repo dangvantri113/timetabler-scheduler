@@ -51,13 +51,34 @@ html body #login-form {
   width: 400px;
   height: 180px;
   margin: 50px auto;
-  border: black 2px solid;
+  border: grey 2px solid;
   padding-top: 20px;
+  text-align: center;
 }
 
 html body #login-form label {
   width: 100px;
   margin-right: 10px;
+}
+
+html body #login-form input {
+  border: none;
+  background: none;
+}
+
+html body #login-form input[type=email],
+html body #login-form input[type=password] {
+  border-bottom: grey solid 2px;
+}
+
+html body #login-form input[type=submit] {
+  background-color: grey;
+  margin-top: 10px;
+}
+
+html body #login-form input:focus {
+  outline: none;
+  border: none;
 }
 
 html .breadcrumb {
