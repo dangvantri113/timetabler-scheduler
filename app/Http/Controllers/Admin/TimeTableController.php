@@ -36,9 +36,7 @@ class TimeTableController extends Controller
         if (session('isLogin') != true) {
             abort(404);
         }
-        $title = "Manage Timetable";
-        $data['title'] = $title;
 
-
+        $ga_service = new GAService();
     }
 }

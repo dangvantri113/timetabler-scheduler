@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\RoomController;
 use App\Http\Controllers\Admin\KlassController;
 use App\Http\Controllers\Admin\TimeTableController;
+use App\Http\Controllers\Admin\GAController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,5 +50,5 @@ Route::post('/admin/klass/edit',[KlassController::class,'edit']);
 Route::post('/admin/klass/delete',[KlassController::class,'delete']);
 Route::get('/admin/timetable',[TimeTableController::class,'index']);
 Route::get('/admin/scheduling',[TimeTableController::class,'scheduling']);
-Route::post('/admin/scheduling',[TimeTableController::class,'doScheduling']);
+Route::post('/admin/scheduling',[GAController::class,'doScheduling']);
 
