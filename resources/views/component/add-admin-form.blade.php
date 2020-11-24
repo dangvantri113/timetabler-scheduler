@@ -9,6 +9,10 @@
             <label id="lb-name">Name</label>
             <input type="name" name="name" id="ip-name" required>
         </div>
+        <div class="field-group">
+            <label id="lb-name">Password</label>
+            <input type="password" name="password" id="ip-password" required>
+        </div>
         <div class="error">
             <span id="error-add-admin-message"></span>
         </div>

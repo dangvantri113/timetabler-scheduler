@@ -28,7 +28,11 @@ class TimeTableController extends Controller
         }
         $title = "Scheduling";
         $data['title'] = $title;
-
+        $this->setBreadcrumb([
+            'dashboard' => '/admin/dashboard',
+            'add-admin' => '/admin/add-admin'
+        ]);
+        $data['breadcrumb'] = $this->getBreadcrumb();
         return view('admin.scheduling',$data);
     }
     public function doScheduling(Request $request)

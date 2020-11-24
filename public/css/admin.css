@@ -13,7 +13,7 @@
   border: 1px solid black;
   margin: 10px;
   padding: 4px;
-  background-color: #1c7430;
+  background-color: #E91E7E;
 }
 
 .admin-content .dashboard .menu-item a {
@@ -27,8 +27,8 @@
 
 .admin-content .side-bar {
   padding: 10px;
-  background-color: #1a202c;
-  color: #ddd;
+  background-color: #5bc0de;
+  color: #fff;
 }
 
 .admin-content .side-bar ul {
@@ -42,7 +42,7 @@
 .admin-content .side-bar ul li a {
   text-decoration: none;
   font-weight: bold;
-  color: #ddd;
+  color: #fff;
 }
 
 .admin-content .form-container {

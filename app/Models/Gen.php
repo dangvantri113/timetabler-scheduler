@@ -4,13 +4,13 @@ namespace App\Models;
 
 class Gen
 {
-    private $timeSlot;
+    public $timeSlot;
 
-    private $class;
+    public $class;
 
-    private $teacher;
+    public $teacher;
 
-    private $subject;
+    public $subject;
 
     /**
      * Gen constructor.

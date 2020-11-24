@@ -38,7 +38,7 @@ class GAController
         }
         $this->initPopulation($classes, $teachers, $subjects, $this->emptySlot, 100);
 
-        $times =0;
+        $times = 0;
 
         do {
             $times++;
@@ -47,12 +47,10 @@ class GAController
             $this->crossOver();
             $this->makeNewPopulation();
             $this->makeMutant();
-        }
-        while ($times < 1);
+        } while ($times < 1);
 
-        $data = $this->population[0];
-//dd($data->gens);
-return view('admin.timetable2',['data'=>$data,'classes'=>$classes,'title'=>'TKB']);
+        $data = $this->population[0]->gens;
+        return view('admin.timetable2', ['data' => $data, 'classes' => $classes, 'title' => 'TKB']);
     }
 
     public function randomChromosome(
@@ -76,7 +74,7 @@ return view('admin.timetable2',['data'=>$data,'classes'=>$classes,'title'=>'TKB'
                 );
             }
         }
-        for($i=0;$i<$count_classes;$i++){
+        for ($i = 0; $i < $count_classes; $i++) {
             $empty_slots = $number_empty_slots;
             while ($empty_slots > 0) {
                 $rand_time_slot = rand(0, $count_time_slots - 1);
@@ -110,55 +108,62 @@ return view('admin.timetable2',['data'=>$data,'classes'=>$classes,'title'=>'TKB'
     private function considerFitness()
     {
         $array_fitness = [];
-        foreach ($this->population as $chromosome){
+        foreach ($this->population as $chromosome) {
             $array_fitness[] = $chromosome->calculateFitness($this->subjects);
         }
-        print_r($array_fitness);
         return $array_fitness;
     }
-    private function getScore($a, $b){
+
+    private function getScore($a, $b)
+    {
         return $a->getScore() - $b->getScore();
     }
+
     private function selection()
     {
         $quantity = count($this->population);
-        $selection  = $this->population;
-        for ($i=0; $i<$quantity; $i++){
+        $selection = $this->population;
+        for ($i = 0; $i < $quantity; $i++) {
             usort($selection, array($this, "getScore"));
         }
 
-        $selection = array_slice($selection,0,50);
+        $selection = array_slice($selection, 0, 50);
         $this->selection = $selection;
         return $selection;
     }
 
-    private function crossOver(){
+    private function crossOver()
+    {
         $crossOver = [];
 //        dd($this->selection[1]);
-        for($i=0; $i<50; $i+=2){
-            $a1 = array_slice($this->selection[$i]->gens,0, 25);
-            $a2 = array_slice($this->selection[$i]->gens,25,25);
-            $a3 = array_slice($this->selection[$i]->gens,0,25);
-            $a4 = array_slice($this->selection[$i]->gens,25,25);
+        for ($i = 0; $i < 50; $i += 2) {
+            $a1 = array_slice($this->selection[$i]->gens, 0, 25);
+            $a2 = array_slice($this->selection[$i]->gens, 25, 25);
+            $a3 = array_slice($this->selection[$i]->gens, 0, 25);
+            $a4 = array_slice($this->selection[$i]->gens, 25, 25);
 
-            $crossOver[] = new Chromosome(array_merge($a1,$a4));
-            $crossOver[] = new Chromosome(array_merge($a3,$a2));
+            $crossOver[] = new Chromosome(array_merge($a1, $a4));
+            $crossOver[] = new Chromosome(array_merge($a3, $a2));
         }
         $this->crossOver = $crossOver;
         return $crossOver;
     }
-    private function makeMutant(){
-        for($i=0; $i<5; $i++){
-            $a = rand(0,99);
-            $b = rand(0,49);
-            $c = rand(0,49);
+
+    private function makeMutant()
+    {
+        for ($i = 0; $i < 5; $i++) {
+            $a = rand(0, 99);
+            $b = rand(0, 49);
+            $c = rand(0, 49);
             $temp = $this->population[$a]->gens[$b];
             $this->population[$a]->gens[$b] = $this->population[$a]->gens[$c];
             $this->population[$a]->gens[$c] = $temp;
         }
     }
-    private function makeNewPopulation(){
-        $this->population = array_merge($this->selection,$this->crossOver);
+
+    private function makeNewPopulation()
+    {
+        $this->population = array_merge($this->selection, $this->crossOver);
 //        dd($this->population);
     }
 

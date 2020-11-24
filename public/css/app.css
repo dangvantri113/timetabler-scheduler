@@ -84,7 +84,7 @@ html body #login-form input:focus {
 html .breadcrumb {
   display: block;
   padding-left: 50px;
-  background-color: darkgreen;
+  background-color: #E91E7E;
   color: #1a202c;
   border-radius: 0;
   margin-bottom: 0;
