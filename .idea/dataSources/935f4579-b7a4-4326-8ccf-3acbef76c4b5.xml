@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="timetable-scheduler@localhost">
+<dataSource name="timetable-advance@localhost">
   <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.19">
     <root id="1">
       <ServerVersion>10.4.14</ServerVersion>
@@ -25,10 +25,10 @@
       <Collation>utf8mb4_general_ci</Collation>
     </schema>
     <schema id="8" parent="1" name="timetable-advance">
+      <Current>1</Current>
       <Collation>utf8mb4_general_ci</Collation>
     </schema>
     <schema id="9" parent="1" name="timetable-scheduler">
-      <Current>1</Current>
       <Collation>utf8mb4_general_ci</Collation>
     </schema>
     <schema id="10" parent="1" name="wp_trithucdoanhnghiep">
@@ -1063,401 +1063,496 @@
       <ObjectGrants>ALL PRIVILEGES!
 </ObjectGrants>
     </user>
-    <table id="338" parent="9" name="admins"/>
-    <table id="339" parent="9" name="klasses"/>
-    <table id="340" parent="9" name="rooms"/>
-    <table id="341" parent="9" name="subject_teacher"/>
-    <table id="342" parent="9" name="subjects"/>
-    <table id="343" parent="9" name="teachers"/>
-    <table id="344" parent="9" name="timetables"/>
-    <column id="345" parent="338" name="id">
+    <table id="338" parent="8" name="admins"/>
+    <table id="339" parent="8" name="klasses"/>
+    <table id="340" parent="8" name="levels"/>
+    <table id="341" parent="8" name="rooms"/>
+    <table id="342" parent="8" name="subject_level"/>
+    <table id="343" parent="8" name="subject_teacher"/>
+    <table id="344" parent="8" name="subjects"/>
+    <table id="345" parent="8" name="teachers"/>
+    <table id="346" parent="8" name="timetables"/>
+    <column id="347" parent="338" name="id">
       <Position>1</Position>
       <DataType>int(6) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="346" parent="338" name="name">
+    <column id="348" parent="338" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="347" parent="338" name="email">
+    <column id="349" parent="338" name="email">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
     </column>
-    <column id="348" parent="338" name="password">
+    <column id="350" parent="338" name="password">
       <Position>4</Position>
       <DataType>varchar(60)|0s</DataType>
     </column>
-    <column id="349" parent="338" name="created_at">
+    <column id="351" parent="338" name="created_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <column id="350" parent="338" name="updated_at">
+    <column id="352" parent="338" name="updated_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <column id="351" parent="338" name="deleted_at">
+    <column id="353" parent="338" name="deleted_at">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <key id="352" parent="338" name="PRIMARY">
+    <key id="354" parent="338" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="353" parent="339" name="id">
+    <column id="355" parent="339" name="id">
       <Position>1</Position>
       <DataType>int(6) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="354" parent="339" name="name">
+    <column id="356" parent="339" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="355" parent="339" name="number_students">
+    <column id="357" parent="339" name="number_students">
       <Position>3</Position>
       <DataType>int(3)|0s</DataType>
     </column>
-    <column id="356" parent="339" name="room_id">
+    <column id="358" parent="339" name="room_id">
       <Position>4</Position>
       <DataType>int(6) unsigned|0s</DataType>
     </column>
-    <column id="357" parent="339" name="created_at">
+    <column id="359" parent="339" name="created_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <column id="358" parent="339" name="updated_at">
+    <column id="360" parent="339" name="updated_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <column id="359" parent="339" name="deleted_at">
+    <column id="361" parent="339" name="deleted_at">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <column id="360" parent="339" name="teacher_id">
+    <column id="362" parent="339" name="teacher_id">
       <Position>8</Position>
       <DataType>int(6) unsigned|0s</DataType>
     </column>
-    <index id="361" parent="339" name="klasses_teachers_id_fk">
+    <column id="363" parent="339" name="level_id">
+      <Position>9</Position>
+      <DataType>int(6) unsigned|0s</DataType>
+    </column>
+    <index id="364" parent="339" name="klasses_teachers_id_fk">
       <ColNames>teacher_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="362" parent="339" name="room_id">
+    <index id="365" parent="339" name="room_id">
       <ColNames>room_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="363" parent="339" name="PRIMARY">
+    <index id="366" parent="339" name="klasses_level_id_fk">
+      <ColNames>level_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="367" parent="339" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="364" parent="339" name="klasses_teachers_id_fk">
+    <key id="368" parent="339" name="klasses_teachers_id_fk">
       <ColNames>teacher_id</ColNames>
       <UnderlyingIndexName>klasses_teachers_id_fk</UnderlyingIndexName>
     </key>
-    <foreign-key id="365" parent="339" name="klasses_ibfk_1">
+    <foreign-key id="369" parent="339" name="klasses_ibfk_1">
       <ColNames>room_id</ColNames>
       <RefTableName>rooms</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="366" parent="339" name="klasses_teachers_id_fk">
+    <foreign-key id="370" parent="339" name="klasses_teachers_id_fk">
       <ColNames>teacher_id</ColNames>
       <RefTableName>teachers</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="367" parent="340" name="id">
+    <foreign-key id="371" parent="339" name="klasses_level_id_fk">
+      <ColNames>level_id</ColNames>
+      <RefTableName>levels</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="372" parent="340" name="id">
       <Position>1</Position>
       <DataType>int(6) unsigned|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="368" parent="340" name="name">
+    <column id="373" parent="340" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="369" parent="340" name="created_at">
-      <Position>3</Position>
-      <DataType>timestamp|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>current_timestamp()</DefaultExpression>
-      <OnUpdate>current_timestamp()</OnUpdate>
-    </column>
-    <column id="370" parent="340" name="updated_at">
-      <Position>4</Position>
-      <DataType>timestamp|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>current_timestamp()</DefaultExpression>
-      <OnUpdate>current_timestamp()</OnUpdate>
-    </column>
-    <column id="371" parent="340" name="deleted_at">
-      <Position>5</Position>
-      <DataType>timestamp|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>current_timestamp()</DefaultExpression>
-      <OnUpdate>current_timestamp()</OnUpdate>
-    </column>
-    <key id="372" parent="340" name="PRIMARY">
+    <key id="374" parent="340" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="373" parent="341" name="id">
+    <column id="375" parent="341" name="id">
       <Position>1</Position>
       <DataType>int(6) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="374" parent="341" name="teacher_id">
+    <column id="376" parent="341" name="name">
       <Position>2</Position>
-      <DataType>int(6) unsigned|0s</DataType>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="375" parent="341" name="subject_id">
+    <column id="377" parent="341" name="created_at">
       <Position>3</Position>
-      <DataType>int(6) unsigned|0s</DataType>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <column id="376" parent="341" name="created_at">
+    <column id="378" parent="341" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <column id="377" parent="341" name="modified_at">
+    <column id="379" parent="341" name="deleted_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <column id="378" parent="341" name="deleted_at">
+    <key id="380" parent="341" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="381" parent="342" name="id">
+      <Position>1</Position>
+      <DataType>int(6) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="382" parent="342" name="level_id">
+      <Position>2</Position>
+      <DataType>int(6) unsigned|0s</DataType>
+    </column>
+    <column id="383" parent="342" name="subject_id">
+      <Position>3</Position>
+      <DataType>int(6) unsigned|0s</DataType>
+    </column>
+    <column id="384" parent="342" name="units">
+      <Position>4</Position>
+      <DataType>int(6) unsigned|0s</DataType>
+    </column>
+    <column id="385" parent="342" name="created_at">
+      <Position>5</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <OnUpdate>current_timestamp()</OnUpdate>
+    </column>
+    <column id="386" parent="342" name="updated_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <index id="379" parent="341" name="teacher_id">
-      <ColNames>teacher_id</ColNames>
+    <column id="387" parent="342" name="deleted_at">
+      <Position>7</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <OnUpdate>current_timestamp()</OnUpdate>
+    </column>
+    <index id="388" parent="342" name="level_id">
+      <ColNames>level_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="380" parent="341" name="subject_id">
+    <index id="389" parent="342" name="subject_id">
       <ColNames>subject_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="381" parent="341" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="382" parent="341" name="subject_teacher_ibfk_1">
-      <ColNames>teacher_id</ColNames>
-      <RefTableName>teachers</RefTableName>
-      <RefColNames>id</RefColNames>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <foreign-key id="383" parent="341" name="subject_teacher_ibfk_2">
-      <ColNames>subject_id</ColNames>
-      <RefTableName>subjects</RefTableName>
-      <RefColNames>id</RefColNames>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <column id="384" parent="342" name="id">
-      <Position>1</Position>
-      <DataType>int(6) unsigned|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
-    </column>
-    <column id="385" parent="342" name="name">
-      <Position>2</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="386" parent="342" name="number_hours">
-      <Position>3</Position>
-      <DataType>int(6)|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>0</DefaultExpression>
-    </column>
-    <column id="387" parent="342" name="created_at">
-      <Position>4</Position>
-      <DataType>timestamp|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>current_timestamp()</DefaultExpression>
-      <OnUpdate>current_timestamp()</OnUpdate>
-    </column>
-    <column id="388" parent="342" name="updated_at">
-      <Position>5</Position>
-      <DataType>timestamp|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>current_timestamp()</DefaultExpression>
-      <OnUpdate>current_timestamp()</OnUpdate>
-    </column>
-    <column id="389" parent="342" name="deleted_at">
-      <Position>6</Position>
-      <DataType>timestamp|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>current_timestamp()</DefaultExpression>
-      <OnUpdate>current_timestamp()</OnUpdate>
-    </column>
     <key id="390" parent="342" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="391" parent="343" name="id">
+    <foreign-key id="391" parent="342" name="subject_level_ibfk_1">
+      <ColNames>level_id</ColNames>
+      <RefTableName>levels</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="392" parent="342" name="subject_level_ibfk_2">
+      <ColNames>subject_id</ColNames>
+      <RefTableName>subjects</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="393" parent="343" name="id">
       <Position>1</Position>
       <DataType>int(6) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="392" parent="343" name="name">
+    <column id="394" parent="343" name="teacher_id">
       <Position>2</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>int(6) unsigned|0s</DataType>
     </column>
-    <column id="393" parent="343" name="email">
+    <column id="395" parent="343" name="subject_id">
       <Position>3</Position>
-      <DataType>varchar(50)|0s</DataType>
+      <DataType>int(6) unsigned|0s</DataType>
     </column>
-    <column id="394" parent="343" name="gender">
+    <column id="396" parent="343" name="created_at">
       <Position>4</Position>
-      <DataType>tinyint(1)|0s</DataType>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <column id="395" parent="343" name="birthday">
+    <column id="397" parent="343" name="modified_at">
       <Position>5</Position>
-      <DataType>date|0s</DataType>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <column id="396" parent="343" name="position">
+    <column id="398" parent="343" name="deleted_at">
       <Position>6</Position>
-      <DataType>enum(&apos;HEAD&apos;, &apos;SUBHEAD&apos;, &apos;CHARGE&apos;)|0e</DataType>
-    </column>
-    <column id="397" parent="343" name="created_at">
-      <Position>7</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <column id="398" parent="343" name="updated_at">
-      <Position>8</Position>
-      <DataType>timestamp|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>current_timestamp()</DefaultExpression>
-      <OnUpdate>current_timestamp()</OnUpdate>
-    </column>
-    <column id="399" parent="343" name="deleted_at">
-      <Position>9</Position>
-      <DataType>timestamp|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>current_timestamp()</DefaultExpression>
-      <OnUpdate>current_timestamp()</OnUpdate>
-    </column>
-    <key id="400" parent="343" name="PRIMARY">
+    <index id="399" parent="343" name="teacher_id">
+      <ColNames>teacher_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="400" parent="343" name="subject_id">
+      <ColNames>subject_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="401" parent="343" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="401" parent="344" name="id">
+    <foreign-key id="402" parent="343" name="subject_teacher_ibfk_1">
+      <ColNames>teacher_id</ColNames>
+      <RefTableName>teachers</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="403" parent="343" name="subject_teacher_ibfk_2">
+      <ColNames>subject_id</ColNames>
+      <RefTableName>subjects</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="404" parent="344" name="id">
       <Position>1</Position>
       <DataType>int(6) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="402" parent="344" name="klass_id">
+    <column id="405" parent="344" name="name">
       <Position>2</Position>
-      <DataType>int(6) unsigned|0s</DataType>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="403" parent="344" name="subject_id">
+    <column id="406" parent="344" name="number_hours">
       <Position>3</Position>
-      <DataType>int(6) unsigned|0s</DataType>
-    </column>
-    <column id="404" parent="344" name="teacher_id">
-      <Position>4</Position>
-      <DataType>int(6) unsigned|0s</DataType>
-    </column>
-    <column id="405" parent="344" name="date">
-      <Position>5</Position>
-      <DataType>date|0s</DataType>
-    </column>
-    <column id="406" parent="344" name="unit">
-      <Position>6</Position>
-      <DataType>tinyint(4)|0s</DataType>
+      <DataType>int(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
     </column>
     <column id="407" parent="344" name="created_at">
-      <Position>7</Position>
+      <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <column id="408" parent="344" name="modified_at">
-      <Position>8</Position>
+    <column id="408" parent="344" name="updated_at">
+      <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
     <column id="409" parent="344" name="deleted_at">
+      <Position>6</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <OnUpdate>current_timestamp()</OnUpdate>
+    </column>
+    <key id="410" parent="344" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="411" parent="345" name="id">
+      <Position>1</Position>
+      <DataType>int(6) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="412" parent="345" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="413" parent="345" name="email">
+      <Position>3</Position>
+      <DataType>varchar(50)|0s</DataType>
+    </column>
+    <column id="414" parent="345" name="gender">
+      <Position>4</Position>
+      <DataType>tinyint(1)|0s</DataType>
+    </column>
+    <column id="415" parent="345" name="birthday">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+    </column>
+    <column id="416" parent="345" name="position">
+      <Position>6</Position>
+      <DataType>enum(&apos;HEAD&apos;, &apos;SUBHEAD&apos;, &apos;CHARGE&apos;)|0e</DataType>
+    </column>
+    <column id="417" parent="345" name="created_at">
+      <Position>7</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <OnUpdate>current_timestamp()</OnUpdate>
+    </column>
+    <column id="418" parent="345" name="updated_at">
+      <Position>8</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <OnUpdate>current_timestamp()</OnUpdate>
+    </column>
+    <column id="419" parent="345" name="deleted_at">
       <Position>9</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <OnUpdate>current_timestamp()</OnUpdate>
     </column>
-    <index id="410" parent="344" name="klass_id">
-      <ColNames>klass_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="411" parent="344" name="subject_id">
-      <ColNames>subject_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="412" parent="344" name="teacher_id">
-      <ColNames>teacher_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="413" parent="344" name="PRIMARY">
+    <key id="420" parent="345" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="414" parent="344" name="timetables_ibfk_1">
+    <column id="421" parent="346" name="id">
+      <Position>1</Position>
+      <DataType>int(6) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="422" parent="346" name="klass_id">
+      <Position>2</Position>
+      <DataType>int(6) unsigned|0s</DataType>
+    </column>
+    <column id="423" parent="346" name="subject_id">
+      <Position>3</Position>
+      <DataType>int(6) unsigned|0s</DataType>
+    </column>
+    <column id="424" parent="346" name="teacher_id">
+      <Position>4</Position>
+      <DataType>int(6) unsigned|0s</DataType>
+    </column>
+    <column id="425" parent="346" name="date">
+      <Position>5</Position>
+      <DataType>enum(&apos;HAI&apos;, &apos;BA&apos;, &apos;TƯ&apos;, &apos;NĂM&apos;, &apos;SÁU&apos;)|0e</DataType>
+      <DefaultExpression>&apos;HAI&apos;</DefaultExpression>
+    </column>
+    <column id="426" parent="346" name="hour">
+      <Position>6</Position>
+      <DataType>tinyint(4)|0s</DataType>
+    </column>
+    <column id="427" parent="346" name="created_at">
+      <Position>7</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <OnUpdate>current_timestamp()</OnUpdate>
+    </column>
+    <column id="428" parent="346" name="updated_at">
+      <Position>8</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <OnUpdate>current_timestamp()</OnUpdate>
+    </column>
+    <column id="429" parent="346" name="deleted_at">
+      <Position>9</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <OnUpdate>current_timestamp()</OnUpdate>
+    </column>
+    <index id="430" parent="346" name="klass_id">
+      <ColNames>klass_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="431" parent="346" name="subject_id">
+      <ColNames>subject_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="432" parent="346" name="teacher_id">
+      <ColNames>teacher_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="433" parent="346" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="434" parent="346" name="timetables_ibfk_1">
       <ColNames>klass_id</ColNames>
       <RefTableName>klasses</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="415" parent="344" name="timetables_ibfk_2">
+    <foreign-key id="435" parent="346" name="timetables_ibfk_2">
       <ColNames>subject_id</ColNames>
       <RefTableName>subjects</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="416" parent="344" name="timetables_ibfk_3">
+    <foreign-key id="436" parent="346" name="timetables_ibfk_3">
       <ColNames>teacher_id</ColNames>
       <RefTableName>teachers</RefTableName>
       <RefColNames>id</RefColNames>

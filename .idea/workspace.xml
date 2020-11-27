@@ -26,22 +26,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24f005e3-5d9d-4324-999e-ac9cf579f633" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/body.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SubjectLevelController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Level.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/SubjectLevel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/TimeTable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/subject-level.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/component/subject-level/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/component/subject-level/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b2e18d4b-5944-4167-838e-e7aab5dab0b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b2e18d4b-5944-4167-838e-e7aab5dab0b3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/GAController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/GAController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/KlassController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/KlassController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SubjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SubjectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeacherController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TimeTableController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TimeTableController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Gen.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Gen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/admin.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/timetable2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/timetable2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/component/add-admin-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/add-admin-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Klass.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Klass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Subject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Subject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/klass.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/klass.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/component/klass/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/klass/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/component/klass/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/klass/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/component/side-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/side-bar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/component/timetable/scheduling-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/timetable/scheduling-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +67,6 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
@@ -78,7 +87,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
@@ -127,7 +135,6 @@
       <path value="$PROJECT_DIR$/vendor/brick/math" />
       <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
@@ -165,6 +172,12 @@
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jM0h6OzF7FqFmqLz8NM2qJyzCl" />
@@ -177,16 +190,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Models" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\timetable-scheduler\public\images" />
-      <recent name="C:\xampp\htdocs\timetable-scheduler\resources\views\admin" />
       <recent name="C:\xampp\htdocs\timetable-scheduler\app\Models" />
+      <recent name="C:\xampp\htdocs\timetable-scheduler\resources\views\component" />
+      <recent name="C:\xampp\htdocs\timetable-scheduler\resources\views\admin" />
+      <recent name="C:\xampp\htdocs\timetable-scheduler\app\Http\Controllers\Admin" />
+      <recent name="C:\xampp\htdocs\timetable-scheduler\public\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -209,7 +224,10 @@
       <workItem from="1605948344422" duration="27050000" />
       <workItem from="1606049261291" duration="4890000" />
       <workItem from="1606139109053" duration="3726000" />
-      <workItem from="1606220302378" duration="8560000" />
+      <workItem from="1606220302378" duration="20353000" />
+      <workItem from="1606320244151" duration="3825000" />
+      <workItem from="1606325275302" duration="3057000" />
+      <workItem from="1606401829088" duration="11039000" />
     </task>
     <task id="LOCAL-00001" summary="implement GA">
       <created>1605648285118</created>
@@ -253,10 +271,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="implement GA" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603598876443">
+    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606233177109">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1603598876443" />
+    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1606233177109" />
     <state x="441" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605948629834">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -269,34 +287,66 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="363" y="119" key="DUMP_DIALOG_DIMENSION_KEY/0.0.1366.728@0.0.1366.728" timestamp="1603605144845" />
-    <state x="463" y="90" key="FileChooserDialogImpl" timestamp="1606220356468">
+    <state x="463" y="90" key="FileChooserDialogImpl" timestamp="1606402359268">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="90" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606220356468" />
+    <state x="463" y="90" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606402359268" />
+    <state width="426" height="2" key="GridCell.Tab.0.bottom" timestamp="1606411342535">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="426" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606411342535" />
+    <state width="426" height="2" key="GridCell.Tab.0.center" timestamp="1606411342535">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="426" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606411342535" />
+    <state width="426" height="2" key="GridCell.Tab.0.left" timestamp="1606411342535">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="426" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606411342535" />
+    <state width="426" height="2" key="GridCell.Tab.0.right" timestamp="1606411342535">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="426" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606411342535" />
     <state x="453" y="87" key="NewPhpClassDialog" timestamp="1605948642540">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="453" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1605948642540" />
-    <state x="184" y="9" key="SettingsEditor" timestamp="1606220358051">
+    <state x="184" y="9" key="SettingsEditor" timestamp="1606402361496">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606220358051" />
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606402361496" />
     <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605648386145">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605648386145" />
+    <state x="582" y="241" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1606233091265">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="582" y="241" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1366.728@0.0.1366.728" timestamp="1606233091265" />
     <state x="533" y="125" width="316" height="477" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1603604758830">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="533" y="125" width="316" height="477" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.728@0.0.1366.728" timestamp="1603604758830" />
+    <state x="553" y="251" width="295" height="225" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1606404659623">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="553" y="251" width="295" height="225" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/0.0.1366.728@0.0.1366.728" timestamp="1606404659623" />
+    <state x="479" y="184" width="408" height="351" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1606412994503">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="479" y="184" width="408" height="351" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1366.728@0.0.1366.728" timestamp="1606412994503" />
+    <state x="526" y="137" width="493" height="454" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1606402804747">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="526" y="137" width="493" height="454" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1606402804747" />
     <state x="525" y="212" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1" timestamp="1603598900895">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="525" y="212" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/0.0.1366.728@0.0.1366.728" timestamp="1603598900895" />
-    <state x="390" y="97" width="596" height="564" key="find.popup" timestamp="1606228560386">
+    <state x="390" y="97" width="601" height="592" key="find.popup" timestamp="1606412930323">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="97" width="596" height="564" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1606228560386" />
+    <state x="390" y="97" width="601" height="592" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1606412930323" />
     <state x="526" y="125" key="refactoring.ChangeSignatureDialog" timestamp="1605955497668">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -305,10 +355,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1606139372690" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606229492298">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606412578451">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606229492298" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606412578451" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

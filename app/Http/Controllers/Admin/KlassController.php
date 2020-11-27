@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Klass;
+use App\Models\Level;
 use App\Models\Room;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
@@ -26,10 +27,12 @@ class KlassController extends Controller
 
         $teachers = Teacher::all();
         $rooms = Room::all();
+        $levels = Level::all();
         $klasses = Klass::paginate(10);
 
         $data['klasses'] = $klasses;
         $data['teachers'] = $teachers;
+        $data['levels'] = $levels;
         $data['rooms'] = $rooms;
 
         return view('admin.klass', $data);
@@ -58,8 +61,9 @@ class KlassController extends Controller
 
         $klass->name = $request->name;
         $klass->number_students = $request->number_students;
+        $klass->level_id = $request->level_id;
         $klass->teacher_id = $request->teacher_id;
-        $klass->number_students = $request->room_id;
+        $klass->room_id = $request->room_id;
         $klass->save();
 
         return redirect('/admin/klass')->with('message','Edit klass Success');

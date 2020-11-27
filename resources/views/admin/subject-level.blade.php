@@ -12,64 +12,58 @@
             @if(session('message'))
                 <span class="add-message">{{session('message')}}</span>
             @endif
-            @include('component.klass.add')
-            @include('component.klass.list')
+            @include('component.subject-level.add')
+            @include('component.subject-level.list')
         </div>
     </div>
     <div id="delete-modal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Confirm Delete Klass</h5>
+                    <h5 class="modal-title">Confirm Delete Subject-Level</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Do you want delete this klass?</p>
+                    <p>Do you want delete this subject-level?</p>
                 </div>
-                <form id="delete-klass-form" method="post" action="/admin/klass/delete" hidden>
+                <form id="delete-subject-level-form" method="post" action="/admin/subject-level/delete" hidden>
                     @csrf
                     <input type="number" name="id" id="ip-delete-id">
                 </form>
                 <div class="modal-footer">
-                    <button type="submit" form="delete-klass-form" class="btn btn-primary">Yes</button>
+                    <button type="submit" form="delete-subject-level-level-form" class="btn btn-primary">Yes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        function editKlass(id)
+        function editSubjectLevel(id)
         {
-            let formEdit = document.getElementById('form-klass');
-            formEdit.action = '/admin/klass/edit';
+            let formEdit = document.getElementById('form-subject-level');
+            formEdit.action = '/admin/subject-level/edit';
             let ipID = document.getElementById('ip-id');
-            let ipName = document.getElementById('ip-name');
-            let ipStudents = document.getElementById('ip-number-students');
-            let ipRoom = document.getElementById('sl-room');
+            let ipSubject = document.getElementById('sl-subject');
             let ipLevel = document.getElementById('sl-level');
-            let ipTeacher = document.getElementById('sl-teacher');
+            let ipHours = document.getElementById('ip-units');
 
-            let klassName = document.querySelector('#sb_'+id+' .klass-name').innerHTML;
-            let klassStudents = document.querySelector('#sb_'+id+' .klass-students').innerHTML;
-            let klassTeacher = document.querySelector('#sb_'+id+' .klass-teacher').id;
-            let klassLevel = document.querySelector('#sb_'+id+' .klass-level').id;
-            let klassRoom = document.querySelector('#sb_'+id+' .klass-room').id;
+            let subjectLevelSubjectID = document.querySelector('#sb_'+id+' .subject-level-subject-id').id;
+            let subjectLevelLevelID = document.querySelector('#sb_'+id+' .subject-level-level-id').id;
+            let subjectLevelUnits = document.querySelector('#sb_'+id+' .subject-level-units').innerHTML;
 
             ipID.value = id;
-            ipName.value = klassName;
-            ipStudents.value = klassStudents;
-            ipRoom.value = klassRoom.slice(5);
-            ipTeacher.value = klassTeacher.slice(8);
-            ipLevel.value = klassLevel.slice(6);
-            // debugger;
+            ipSubject.value = subjectLevelSubjectID.slice(25);
+            ipLevel.value = subjectLevelLevelID.slice(23);
+            ipHours.value = subjectLevelUnits;
         }
-        function deleteKlass(id){
+        function deleteSubjectLevel(id){
             let ipDeleteID = document.getElementById('ip-delete-id');
             ipDeleteID.value = id;
             $('#delete-modal').modal('show');
         }
+    </script>
     </script>
 @endsection
 @section('load-js')

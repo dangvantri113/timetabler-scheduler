@@ -21,7 +21,7 @@ class SubjectController extends Controller
         if(session('isLogin')!=true){
             abort(404);
         }
-        $this->setBreadcrumb([
+        +$this->setBreadcrumb([
             'dashboard' => '/admin/dashboard',
             'subject' => '/admin/subject',
             ]);

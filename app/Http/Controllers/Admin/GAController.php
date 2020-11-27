@@ -8,6 +8,8 @@ use App\Models\Klass;
 use App\Models\Subject;
 use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Collection;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class GAController
 {
@@ -25,32 +27,92 @@ class GAController
 
     public function doScheduling()
     {
-        $classes = Klass::all();
-        $teachers = Teacher::all();
-        $subjects = Subject::all();
-        $this->subjects = $subjects;
-        foreach ($subjects as $subject) {
-            $this->totalUnit += $subject->number_hours;
+        $spreadsheet = new Spreadsheet();
+
+        $arrayData = [
+            [
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21]
+            ],
+            [
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21]
+            ],
+            [
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21]
+            ],
+            [
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21],
+                [10, 12, 15,10, 12, 15,10, 12, 15, 21]
+            ],
+
+        ];
+        $units = [
+            ['Tiết 1'],
+            ['Tiết 2'],
+            ['Tiết 3'],
+            ['Tiết 4'],
+            ['Tiết 5'],
+            ['Tiết 6'],
+            ['Tiết 7'],
+            ['Tiết 8'],
+            ['Tiết 9'],
+            ['Tiết 10'],
+            ];
+        $i= 3;
+        $spreadsheet->getActiveSheet()
+            ->fromArray(
+                $units,  NULL, 'B'.(string)($i)   );
+
+        foreach ($arrayData as $itemData)
+        {
+            $spreadsheet->getActiveSheet()
+                ->fromArray(
+                    $itemData,  NULL, 'C'.(string)($i)   );
+
+$i+=12;
         }
-        $this->emptySlot = $this->totalTimeSlot - $this->totalUnit;
-        if ($this->emptySlot < 0) {
-            abort(500);
-        }
-        $this->initPopulation($classes, $teachers, $subjects, $this->emptySlot, 100);
-
-        $times = 0;
-
-        do {
-            $times++;
-            $this->considerFitness();
-            $new_population_selected = $this->selection();
-            $this->crossOver();
-            $this->makeNewPopulation();
-            $this->makeMutant();
-        } while ($times < 1);
-
-        $data = $this->population[0]->gens;
-        return view('admin.timetable2', ['data' => $data, 'classes' => $classes, 'title' => 'TKB']);
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('hello-world.xlsx');
+//        $classes = Klass::all();
+//        $teachers = Teacher::all();
+//        $subjects = Subject::all();
+//        $this->subjects = $subjects;
+//        foreach ($subjects as $subject) {
+//            $this->totalUnit += $subject->number_hours;
+//        }
+//        $this->emptySlot = $this->totalTimeSlot - $this->totalUnit;
+//        if ($this->emptySlot < 0) {
+//            abort(500);
+//        }
+//        $this->initPopulation($classes, $teachers, $subjects, $this->emptySlot, 100);
+//
+//        $times = 0;
+//
+//        do {
+//            $times++;
+//            $this->considerFitness();
+//            $new_population_selected = $this->selection();
+//            $this->crossOver();
+//            $this->makeNewPopulation();
+//            $this->makeMutant();
+//        } while ($times < 1);
+//
+//        $data = $this->population[0]->gens;
+//        return view('admin.timetable2', ['data' => $data, 'classes' => $classes, 'title' => 'TKB']);
     }
 
     public function randomChromosome(

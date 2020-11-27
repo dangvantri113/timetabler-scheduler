@@ -2,6 +2,7 @@
     <table>
         <tr>
             <th>Lớp</th>
+            <th>Khối</th>
             <th>Sĩ số</th>
             <th>Phòng</th>
             <th>GVCN</th>
@@ -10,6 +11,7 @@
         @foreach($klasses as $klass)
             <tr id="sb_{{$klass->id}}">
                 <td class="klass-name">{{$klass->name}}</td>
+                <td class="klass-level" id="level_{{$klass->level->id}}">{{$klass->level->name}}</td>
                 <td class="klass-students">{{$klass->number_students}}</td>
                 <td class="klass-room" id="room_{{$klass->room?$klass->room->id:""}}">{{$klass->room?$klass->room->name:""}}</td>
                 <td class="klass-teacher" id="teacher_{{$klass->teacher?$klass->teacher->id:""}}">{{$klass->teacher?$klass->teacher->name:""}}</td>

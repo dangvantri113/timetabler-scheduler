@@ -28,6 +28,7 @@ class TeacherController extends Controller
         $teachers = Teacher::paginate(10);
         $subjects = Subject::all();
         $data['teachers'] = $teachers;
+
         $data['subjects'] = $subjects;
         return view('admin.teacher', $data);
     }

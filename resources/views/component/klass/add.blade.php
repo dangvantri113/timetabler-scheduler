@@ -3,12 +3,16 @@
         @csrf
         <input type="number" name="id" id="ip-id" value="-1" hidden>
         <div class="field-group">
-            <label id="lb-name">Tên lớp</label>
-            <input type="name" name="name" id="ip-name" required>
+            <label id="lb-form-level">Khối</label>
+            <select name="level_id" id="sl-level">
+                @foreach($levels as $level)
+                    <option value="{{$level->id}}">{{$level->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="field-group">
-            <label id="lb-number-hours">Sĩ số</label>
-            <input type="number" name="number_students" id="ip-number-students" required>
+            <label id="lb-name">Tên lớp</label>
+            <input type="name" name="name" id="ip-name" required>
         </div>
         <div class="field-group">
             <label id="lb-room">Phòng học</label>
@@ -17,6 +21,10 @@
                     <option value="{{$room->id}}">{{$room->name}}</option>
                 @endforeach
             </select>
+        </div>
+        <div class="field-group">
+            <label id="lb-number-hours">Sĩ số</label>
+            <input type="number" name="number_students" id="ip-number-students" required>
         </div>
         <div class="field-group">
             <label id="lb-form-teacher">GVCN</label>
