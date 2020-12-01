@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/timetable-schduler.iml" filepath="$PROJECT_DIR$/.idea/timetable-schduler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/timetable-scheduler.iml" filepath="$PROJECT_DIR$/.idea/timetable-scheduler.iml" />
     </modules>
   </component>
 </project>

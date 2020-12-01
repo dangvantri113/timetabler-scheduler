@@ -13,7 +13,7 @@
                 <div style="height: 10px; width: 100%; border-bottom: solid 1px #E91E7E; margin-bottom: 10px"></div>
                 <table border="5" cellspacing="0" align="center" class="timetable">
                     <h3>Lớp {{$classes[$i]->name}}</h3>
-                    <tr>
+                    <tr bac>
                         <td>Tiết/Thứ</td>
                         <td>Thứ 2</td>
                         <td>Thứ 3</td>

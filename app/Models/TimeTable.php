@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TimeTable extends Model
 {
     protected $table = 'timetables';
+
     public function teacher(){
         return $this->belongsTo(Teacher::class);
     }

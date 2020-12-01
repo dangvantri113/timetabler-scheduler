@@ -14,7 +14,7 @@
             <tr id="tc-{{$teacher->id}}">
                 <td class="teacher-name">{{$teacher->name}}</td>
                 <td class="teacher-email">{{$teacher->email}}</td>
-                <td class="teacher-klass">{{$teacher->klass?$teacher->klass->name:""}}</td>
+                <td class="teacher-klass">{{$teacher->klass?$teacher->klass->level->name.$teacher->klass->name:""}}</td>
                 <td class="teacher-subjects">
                     @foreach($teacher->subjects as $subject)
                         <span class="subject-item sb_{{$subject->id}}">{{$subject->name}}</span>

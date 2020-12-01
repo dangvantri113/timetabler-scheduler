@@ -10,7 +10,7 @@ class Subject extends Model
     public function teachers(){
         return $this->belongsToMany(Teacher::class);
     }
-    public function subjectLevel(){
+    public function subjectLevels(){
         return $this->hasMany(SubjectLevel::class);
     }
 }

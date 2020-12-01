@@ -29,7 +29,7 @@
                 <a href="/admin/subject"><i class="fas fa-book"></i>Môn học</a>
             </div>
             <div class="menu-item">
-                <a href="/admin/timetable"><i class="fas fa-calendar-week"></i>Thời khóa biểu</a>
+                <a href="/admin/scheduling"><i class="fas fa-calendar-week"></i>Thời khóa biểu</a>
             </div>
         </div>
     </div>

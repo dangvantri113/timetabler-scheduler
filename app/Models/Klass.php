@@ -16,4 +16,7 @@ class Klass extends Model
     public function room(){
         return $this->belongsTo(Room::class);
     }
+    public function timeTables(){
+        return $this->hasMany(TimeTable::class);
+    }
 }

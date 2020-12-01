@@ -149,6 +149,12 @@
   margin-top: 10px;
 }
 
+.admin-content .timetable td,
+.admin-content .timetable th {
+  padding: 4px;
+  border: black solid 1px;
+}
+
 .admin-content .add-message {
   color: green;
 }

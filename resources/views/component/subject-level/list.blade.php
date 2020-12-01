@@ -1,8 +1,8 @@
 <div class="list-container">
     <table>
         <tr>
+            <th>Môn học</th>
             <th>Khối</th>
-            <th>Môn Học</th>
             <th>Số tiết học</th>
             <th>Hành động</th>
         </tr>

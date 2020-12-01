@@ -3,143 +3,96 @@
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/admin.css">
+    <style>
+        html {
+            height: auto;
+        }
+    </style>
 @endsection
 
 @section('content')
     <div class="admin-content">
         @include('component.side-bar')
         <div class="w-100">
-            <select class="w-100" name="klass_id" id="ip-klass">
-                <option value="1A">1A</option>
-            </select>
-            <table border="5" cellspacing="0" align="center" class="timetable">
-                <tr>
-                    <td align="center" height="50"
-                        width="100"><br>
-                        <b>Day/Period</b></br>
-                    </td>
-                    <td align="center" height="50"
-                        width="100">
-                        <b>I<br>7h-8h</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="100">
-                        <b>II<br>8h-9h</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="100">
-                        <b>III<br>9h-10h</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="100">
-                        <b>IV <br>10h-11h</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="100">
-                        <b>V<br>11h-12h</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="100">
-                        <b>VI<br>12h-13h</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="100">
-                        <b>VII<br>13h-14h</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="100">
-                        <b>VIII<br>14h-15h</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="100">
-                        <b>IX<br>15h-16h</b>
-                    </td>
-                    <td align="center" height="50"
-                        width="100">
-                        <b>X<br>16h-17h</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" height="50">
-                        <b>Monday</b></td>
-                    <td align="center" height="50">Eng</td>
-                    <td align="center" height="50">Mat</td>
-                    <td align="center" height="50">Che</td>
-                    <td align="center" height="50">Che</td>
-                    <td align="center" height="50">Che</td>
-                    <td rowspan="6" align="center" height="50">
-                        <h2>L<br>U<br>N<br>C<br>H</h2>
-                    </td>
-                    <td colspan="3" align="center"
-                        height="50">LAB</td>
-                    <td align="center" height="50">Phy</td>
-                </tr>
-                <tr>
-                    <td align="center" height="50">
-                        <b>Tuesday</b>
-                    </td>
-                    <td colspan="3" align="center"
-                        height="50">LAB
-                    </td>
-                    <td align="center" colspan="2" height="50">Eng</td>
-                    <td align="center" height="50">Che</td>
-                    <td align="center" height="50">Mat</td>
-                    <td align="center" colspan="2" height="50">SPORTS</td>
-                </tr>
-                <tr>
-                    <td align="center" height="50">
-                        <b>Wednesday</b>
-                    </td>
-                    <td align="center" colspan="2" height="50">Mat</td>
-                    <td align="center" colspan="2" height="50">phy</td>
-                    <td align="center" height="50">Eng</td>
-                    <td align="center" height="50">Che</td>
-                    <td colspan="3" align="center"
-                        height="50">LIBRARY
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" height="50">
-                        <b>Thursday</b>
-                    </td>
-                    <td align="center" height="50">Phy</td>
-                    <td align="center" height="50">Eng</td>
-                    <td align="center" colspan="3" height="50">Che</td>
-                    <td colspan="3" align="center"
-                        height="50">LAB
-                    </td>
-                    <td align="center" height="50">Mat</td>
-                </tr>
-                <tr>
-                    <td align="center" height="50">
-                        <b>Friday</b>
-                    </td>
-                    <td colspan="3" align="center"
-                        height="50">LAB
-                    </td>
-                    <td align="center" colspan="2" height="50">Mat</td>
-                    <td align="center" height="50">Che</td>
-                    <td align="center" height="50">Eng</td>
-                    <td align="center" colspan="2" height="50">Phy</td>
-                </tr>
-                <tr>
-                    <td align="center" height="50">
-                        <b>Saturday</b>
-                    </td>
-                    <td align="center" colspan="3" height="50">Eng</td>
-                    <td align="center" height="50">Che</td>
-                    <td align="center" height="50">Mat</td>
-                    <td colspan="3" align="center"
-                        height="50">SEMINAR
-                    </td>
-                    <td align="center" height="50">SPORTS</td>
-                </tr>
-            </table>
+            <button style="height: 30px"><a href="/admin/timetable/export-excel" target="_blank">Tải file excel</a></button>
+            @foreach($klasses as $klass)
+                <div style="text-align: center; border-bottom: pink solid 2px; padding-bottom: 30px;">
+                    <h2>{{$klass->level->name}} {{$klass->name}}</h2>
+                    <table class="timetable m-auto">
+                        <tr style="background: pink">
+                            <th>Tiết / Thứ</th>
+                            <th>Thứ Hai</th>
+                            <th>Thứ Ba</th>
+                            <th>Thứ Tư</th>
+                            <th>Thứ Năm</th>
+                            <th>Thứ Sáu</th>
+                        </tr>
+
+                        @for($i=1;$i<=10;$i++)
+                            <tr>
+                                <td>Tiết {{$i}}</td>
+
+                                <?php $klass_timetable = $klass->timeTables->where('hour', $i) ?>
+                                @if(count($klass_timetable->where('date','HAI'))>0)
+                                    @foreach($klass_timetable->where('date','HAI') as $time)
+                                        @if($time->teacher_id == $klass->teacher_id)
+                                            <td><b>{{$time->subject->name}}</b></td> @else
+                                            <td>{{$time->subject->name}}</td> @endif
+                                    @endforeach
+                                @else
+                                    <td>---</td>
+                                @endif
+                                @if(count($klass_timetable->where('date','BA'))>0)
+                                    @foreach($klass_timetable->where('date','BA') as $time)
+                                        @if($time->teacher_id == $klass->teacher_id)
+                                            <td><b>{{$time->subject->name}}</b></td> @else
+                                            <td>{{$time->subject->name}}</td> @endif
+                                    @endforeach
+                                @else
+                                    <td>---</td>
+                                @endif
+                                @if(count($klass_timetable->where('date','TƯ'))>0)
+                                    @foreach($klass_timetable->where('date','TƯ') as $time)
+                                        @if($time->teacher_id == $klass->teacher_id)
+                                            <td><b>{{$time->subject->name}}</b></td> @else
+                                            <td>{{$time->subject->name}}</td> @endif
+                                    @endforeach
+                                @else
+                                    <td>---</td>
+                                @endif
+                                @if(count($klass_timetable->where('date','NĂM'))>0)
+                                    @foreach($klass_timetable->where('date','NĂM') as $time)
+                                        @if($time->teacher_id == $klass->teacher_id)
+                                            <td><b>{{$time->subject->name}}</b></td> @else
+                                            <td>{{$time->subject->name}}</td> @endif
+                                    @endforeach
+                                @else
+                                    <td>---</td>
+                                @endif
+                                @if(count($klass_timetable->where('date','SÁU'))>0)
+                                    @foreach($klass_timetable->where('date','SÁU') as $time)
+                                        @if($time->teacher_id == $klass->teacher_id)
+                                            <td><b>{{$time->subject->name}}</b></td> @else
+                                            <td>{{$time->subject->name}}</td> @endif
+                                    @endforeach
+                                @else
+                                    <td>---</td>
+                                @endif
+                            </tr>
+                        @endfor
+
+                    </table>
+                </div>
+            @endforeach
         </div>
     </div>
-    @endsection
-    @section('load-js')
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+@endsection
+@section('load-js')
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
     <script src="/js/bootstrap/bootstrap.min.js"></script>
 @endsection
