@@ -26,39 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24f005e3-5d9d-4324-999e-ac9cf579f633" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/935f4579-b7a4-4326-8ccf-3acbef76c4b5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/935f4579-b7a4-4326-8ccf-3acbef76c4b5/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b2e18d4b-5944-4167-838e-e7aab5dab0b3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b2e18d4b-5944-4167-838e-e7aab5dab0b3/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/timetable-scheduler.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/GAController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/GAController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TimeTableController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TimeTableController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Klass.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Klass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Subject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Subject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/TimeTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/TimeTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/hello-world.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/public/hello-world.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/admin.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/scheduling.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/scheduling.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/timetable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/timetable.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/timetable2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/timetable2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/component/subject-level/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/subject-level/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/component/teacher/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/teacher/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/component/timetable/scheduling-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/timetable/scheduling-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,6 +208,7 @@
       <workItem from="1606546138084" duration="16019000" />
       <workItem from="1606627523875" duration="10943000" />
       <workItem from="1606657758510" duration="39356000" />
+      <workItem from="1606835951763" duration="13989000" />
     </task>
     <task id="LOCAL-00001" summary="implement GA">
       <created>1605648285118</created>
@@ -374,10 +344,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1606778501444" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606780441048">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606843016099">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606780441048" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606843016099" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

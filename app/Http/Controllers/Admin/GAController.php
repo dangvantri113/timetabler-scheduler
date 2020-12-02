@@ -86,15 +86,22 @@ class GAController
             $population[] = $time_table;
         }
         // đánh giá độ thích nghi của mỗi nhiễm sắc thề và sắp xếp theo độ thích nghi
+        $i = 0;
+        do {
+            $i++;
+            usort($population, [$this,'soSanhGiaDoThichNghi']);
 
+            //chon ra 50 nst tot nhat
+            $selections = array_slice($population,0,50);
+            // lai tao 50 nst tu 50 nst duoc chon
+            $selections = $this->laiTao($selections);
+            $dot_biens = $this->dotBien($selections);
+            $population = array_merge($selections, $dot_biens);
+
+        }
+        while($i<10);
         usort($population, [$this,'soSanhGiaDoThichNghi']);
-
-        //chon ra 50 nst tot nhat
-        $selections = array_slice($population,0,50);
-        dd($selections);
-
-        // lai tao 50 nst tu 50 nst duoc chon
-        $lai_taos = $this->laiTao($selections);
+        $this->saveDatabase($population[0]);
 
         /**
          * Todo GA
@@ -496,7 +503,85 @@ class GAController
 
     private function laiTao(array $selections)
     {
-        
+        //không triển khai vì ảnh hưởng đến ràng buộc
+        return $selections;
     }
+    private function dotBien(array $selections){
+        foreach ($selections as $selection){
+            $selection = $this->khuHocLienTiep($selection);
+//            $selection = $this->khuTrungGio($selection);
+        }
+        return $selections;
+    }
+
+    private function khuHocLienTiep(array $selection)
+    {
+        $dates = ['HAI','BA','TƯ','NĂM','SÁU'];
+        $hours = [1,2,3,4,5,6,7,8,9,10];
+        foreach ($selection as $time_table_class){
+//            $lap = false;
+//            for ($i=0;$i<5;$i++){
+//                for ($j=2; $j<10;$j++){
+//                     if (
+//                        $time_table_class[$i][$j-2] != null
+//                        && $time_table_class[$i][$j-1]!=null
+//                        && $time_table_class[$i][$j] != null
+//                        && $time_table_class[$i][$j-2]->subject_id == $time_table_class[$i][$j-1]->subject_id
+//                        && $time_table_class[$i][$j-1]->subject_id == $time_table_class[$i][$j]->subject_id
+//                    ){
+//                        $oldi = $i;
+//                        $oldj = $j;
+//                        $lap = true;
+//                        break;
+//                    }
+//                }
+//            }
+
+//            if ($lap){
+//                do {
+//                    $newi = rand(0,4);
+//                    $newj = rand(0,9);
+//if($oldi ==5 ) dd($oldi, $oldj);
+//                    if ($time_table_class[$newi][$newj]!=null && ($newi != $oldi || $newj!=$oldj)){
+//                        $temp = $time_table_class[$newi][$newj];
+//                        $time_table_class[$newi][$newj] = $time_table_class[$oldi][$oldj];
+//                        $time_table_class[$oldi][$oldj] = $temp;
+//                        $time_table_class[$oldi][$oldj]->date = $dates[$oldi];
+//                        $time_table_class[$oldi][$oldj]->hour = $hours[$oldj];
+//                        $time_table_class[$newi][$newj]->date = $dates[$newi];
+//                        $time_table_class[$newi][$newj]->hour = $hours[$newj];
+//                        break;
+//                    }
+//                }
+//                while (true);
+//            }
+            do {
+                $oldi = rand(0,4);
+                $oldj = rand(0,9);
+                $newi = rand(0,4);
+                $newj = rand(0,9);
+
+                if ($time_table_class[$newi][$newj]!=null && $time_table_class[$oldi][$oldj]!=null && ($newi != $oldi || $newj!=$oldj)){
+                    $temp = $time_table_class[$newi][$newj];
+                    $time_table_class[$newi][$newj] = $time_table_class[$oldi][$oldj];
+                    $time_table_class[$oldi][$oldj] = $temp;
+                    $time_table_class[$oldi][$oldj]->date = $dates[$oldi];
+                    $time_table_class[$oldi][$oldj]->hour = $hours[$oldj];
+                    $time_table_class[$newi][$newj]->date = $dates[$newi];
+                    $time_table_class[$newi][$newj]->hour = $hours[$newj];
+                    break;
+                }
+            }
+            while (true);
+        }
+
+//dd($selection[1]);
+        return $selection;
+    }
+
+    private function khuTrungGio(array $selection)
+    {
+    }
+
 }
 
