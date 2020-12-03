@@ -36,8 +36,8 @@
                                 @if(count($klass_timetable->where('date','HAI'))>0)
                                     @foreach($klass_timetable->where('date','HAI') as $time)
                                         @if($time->teacher_id == $klass->teacher_id)
-                                            <td><b>{{$time->subject->name}}</b></td> @else
-                                            <td>{{$time->subject->name}}</td> @endif
+                                            <td>{{$time->subject->name}}</td> @else
+                                            <td><b>{{$time->subject->name}}</b></td> @endif
                                     @endforeach
                                 @else
                                     <td>---</td>
@@ -45,8 +45,8 @@
                                 @if(count($klass_timetable->where('date','BA'))>0)
                                     @foreach($klass_timetable->where('date','BA') as $time)
                                         @if($time->teacher_id == $klass->teacher_id)
-                                            <td><b>{{$time->subject->name}}</b></td> @else
-                                            <td>{{$time->subject->name}}</td> @endif
+                                            <td>{{$time->subject->name}}</td> @else
+                                            <td><b>{{$time->subject->name}}</b></td> @endif
                                     @endforeach
                                 @else
                                     <td>---</td>
@@ -54,8 +54,8 @@
                                 @if(count($klass_timetable->where('date','TƯ'))>0)
                                     @foreach($klass_timetable->where('date','TƯ') as $time)
                                         @if($time->teacher_id == $klass->teacher_id)
-                                            <td><b>{{$time->subject->name}}</b></td> @else
-                                            <td>{{$time->subject->name}}</td> @endif
+                                            <td>{{$time->subject->name}}</td> @else
+                                            <td><b>{{$time->subject->name}}</b></td> @endif
                                     @endforeach
                                 @else
                                     <td>---</td>
@@ -63,8 +63,8 @@
                                 @if(count($klass_timetable->where('date','NĂM'))>0)
                                     @foreach($klass_timetable->where('date','NĂM') as $time)
                                         @if($time->teacher_id == $klass->teacher_id)
-                                            <td><b>{{$time->subject->name}}</b></td> @else
-                                            <td>{{$time->subject->name}}</td> @endif
+                                            <td>{{$time->subject->name}}</td> @else
+                                            <td><b>{{$time->subject->name}}</b></td> @endif
                                     @endforeach
                                 @else
                                     <td>---</td>
@@ -72,8 +72,8 @@
                                 @if(count($klass_timetable->where('date','SÁU'))>0)
                                     @foreach($klass_timetable->where('date','SÁU') as $time)
                                         @if($time->teacher_id == $klass->teacher_id)
-                                            <td><b>{{$time->subject->name}}</b></td> @else
-                                            <td>{{$time->subject->name}}</td> @endif
+                                            <td>{{$time->subject->name}}</td> @else
+                                            <td><b>{{$time->subject->name}}</b></td> @endif
                                     @endforeach
                                 @else
                                     <td>---</td>
