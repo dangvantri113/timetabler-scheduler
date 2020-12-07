@@ -18,6 +18,7 @@
             @foreach($klasses as $klass)
                 <div style="text-align: center; border-bottom: pink solid 2px; padding-bottom: 30px;">
                     <h2>{{$klass->level->name}} {{$klass->name}}</h2>
+                    <h4>GVCN: {{$klass->teacher->name}}</h4>
                     <table class="timetable m-auto">
                         <tr style="background: pink">
                             <th>Tiết / Thứ</th>
@@ -37,7 +38,7 @@
                                     @foreach($klass_timetable->where('date','HAI') as $time)
                                         @if($time->teacher_id == $klass->teacher_id)
                                             <td>{{$time->subject->name}}</td> @else
-                                            <td><b>{{$time->subject->name}}</b></td> @endif
+                                            <td><b>{{$time->subject->name}}</b><br><i style="color: pink">{{$time->teacher->name}}</i></td> @endif
                                     @endforeach
                                 @else
                                     <td>---</td>
@@ -46,7 +47,7 @@
                                     @foreach($klass_timetable->where('date','BA') as $time)
                                         @if($time->teacher_id == $klass->teacher_id)
                                             <td>{{$time->subject->name}}</td> @else
-                                            <td><b>{{$time->subject->name}}</b></td> @endif
+                                            <td><b>{{$time->subject->name}}</b><br><i style="color: pink">{{$time->teacher->name}}</i></td> @endif
                                     @endforeach
                                 @else
                                     <td>---</td>
@@ -55,7 +56,7 @@
                                     @foreach($klass_timetable->where('date','TƯ') as $time)
                                         @if($time->teacher_id == $klass->teacher_id)
                                             <td>{{$time->subject->name}}</td> @else
-                                            <td><b>{{$time->subject->name}}</b></td> @endif
+                                            <td><b>{{$time->subject->name}}</b><br><i style="color: pink">{{$time->teacher->name}}</i></td> @endif
                                     @endforeach
                                 @else
                                     <td>---</td>
@@ -64,7 +65,7 @@
                                     @foreach($klass_timetable->where('date','NĂM') as $time)
                                         @if($time->teacher_id == $klass->teacher_id)
                                             <td>{{$time->subject->name}}</td> @else
-                                            <td><b>{{$time->subject->name}}</b></td> @endif
+                                            <td><b>{{$time->subject->name}}</b><br><i style="color: pink">{{$time->teacher->name}}</i></td> @endif
                                     @endforeach
                                 @else
                                     <td>---</td>
@@ -73,7 +74,7 @@
                                     @foreach($klass_timetable->where('date','SÁU') as $time)
                                         @if($time->teacher_id == $klass->teacher_id)
                                             <td>{{$time->subject->name}}</td> @else
-                                            <td><b>{{$time->subject->name}}</b></td> @endif
+                                            <td><b>{{$time->subject->name}}</b><br><i style="color: pink">{{$time->teacher->name}}</i></td> @endif
                                     @endforeach
                                 @else
                                     <td>---</td>
