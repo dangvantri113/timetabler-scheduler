@@ -16,4 +16,8 @@ class Teacher extends Model
     {
         return $this->belongsToMany(Subject::class);
     }
+    public function timeTables()
+    {
+        return $this->hasMany(TimeTable::class);
+    }
 }

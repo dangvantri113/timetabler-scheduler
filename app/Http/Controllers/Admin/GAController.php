@@ -16,10 +16,8 @@ class GAController
 {
     /** @var Chromosome[] */
     private $population;
-    private $totalUnit = 0;
-    private $emptySlot = 0;
-    private $totalTimeSlot = 50;
     private $subjects;
+    private $teachers;
     private $selection;
     /**
      * @var array
@@ -80,26 +78,27 @@ class GAController
         $units = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         //khoi tao quan the ban dau
         $population = [];
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $time_table = $this->initEmptyTimeTable($subjects, $teachers, $klasses, $dates, $units);
             $time_table = $this->fillInfoTimeTable($time_table, $klasses, $teachers, $subjects);
             $population[] = $time_table;
         }
         // đánh giá độ thích nghi của mỗi nhiễm sắc thề và sắp xếp theo độ thích nghi
+        for ($i = 0; $i < 20; $i++) {
+            usort($population, [$this, 'soSanhGiaDoThichNghi']);
 
-        usort($population, [$this, 'soSanhGiaDoThichNghi']);
-
-        //chon ra 50 nst tot nhat
-        $selections = array_slice($population, 0, 50);
-        // lai tao 50 nst tu 50 nst duoc chon
-        $selections = $this->laiTao($selections);
-        $dot_biens = $this->dotBien($selections);
-        $population = array_merge($selections, $dot_biens);
-
+            //chon ra 5 nst tot nhat
+            $selections = array_slice($population, 0, 10);
+            // lai tao 50 nst tu 50 nst duoc chon
+            $selections = $this->laiTao($selections);
+            $dot_biens = $this->dotBien($selections, $teachers);
+            $population = array_merge($selections, $dot_biens);
+        }
 
 
         usort($population, [$this, 'soSanhGiaDoThichNghi']);
         $this->saveDatabase($population[0]);
+        die;
 
         return redirect('/admin/timetable/view');
         /**
@@ -442,22 +441,20 @@ class GAController
                     if ($item == null) {
                         continue;
                     }
-                    if ($i == 0) {
-                        $subject_id = $item->subject_id;
-                        $i++;
-                    } else {
-                        if ($subject_id == $item->subject_id) {
-                            $hocLienTiep++;
-                            if ($hocLienTiep > 2) {
-                                $diemTru++;
-                            }
-                        } else {
-                            $hocLienTiep = 1;
+                    if ($subject_id == $item->subject_id) {
+                        $hocLienTiep++;
+                        if ($hocLienTiep > 2) {
+                            $diemTru++;
                         }
+                    } else {
+                        $hocLienTiep = 1;
+                        $subject_id = $item->subject_id;
                     }
+
                 }
             }
         }
+        echo $diemTru . '/';
         $teacher_id_map = [];
         foreach ($time_table as $kass_id => $klass_time_table) {
             $teacher_ids = [];
@@ -478,12 +475,14 @@ class GAController
                 $diemTru += $this->trungGio($teacher_id_map[$i], $teacher_id_map[$j]);
             }
         }
+        echo $diemTru . '<br>';
         return $diemTru;
     }
 
     private function soSanhGiaDoThichNghi($nst1, $nst2)
     {
-        return $this->danhGiaDoThichNghi($nst1) - $this->danhGiaDoThichNghi($nst2);
+        $diem_tru = $this->danhGiaDoThichNghi($nst1) - $this->danhGiaDoThichNghi($nst2);
+        return $diem_tru;
     }
 
     private function trungGio(array $arr1, array $arr2)
@@ -501,70 +500,175 @@ class GAController
         return $selections;
     }
 
-    private function dotBien(array $selections)
+    private function dotBien(array $selections, $teachers)
     {
         for ($i = 0; $i < count($selections); $i++) {
-            $selections[$i] = $this->khuHocLienTiep($selections[$i]);
+            $selections[$i] = $this->khuHocLienTiepTrenQuanThe($selections[$i]);
+            $selections[$i] = $this->khuTrungLichGiaoVien($selections[$i], $teachers);
         }
         return $selections;
     }
 
-    private function khuHocLienTiep(array $selection)
+    private function khuHocLienTiepTrenQuanThe(array $selection)
     {
-        $dates = ['HAI', 'BA', 'TƯ', 'NĂM', 'SÁU'];
-        $hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         foreach ($selection as $time_table_class) {
-            $lap = false;
-            $oldi = 0;
-            $oldj = 2;
-            while ($oldi < 5 && $oldj < 10) {
-                for ($i = $oldi; $i < 5; $i++) {
-                    for ($j = $oldj; $j < 10; $j++) {
-                        if (
-                            $time_table_class[$i][$j - 2] != null
-                            && $time_table_class[$i][$j - 1] != null
-                            && $time_table_class[$i][$j] != null
-                            && $time_table_class[$i][$j - 2]->subject_id == $time_table_class[$i][$j - 1]->subject_id
-                            && $time_table_class[$i][$j - 1]->subject_id == $time_table_class[$i][$j]->subject_id
-                        ) {
-                            $oldi = $i;
-                            $oldj = $j;
-                            $lap = true;
-                            break;
+            $this->khuHocLienTiep($time_table_class);
+        }
+//        foreach ($selection as $time_table_class) {
+//
+//            $lap = false;
+//            $oldi = 0;
+//            $oldj = 2;
+//            while ($oldi < 5 && $oldj < 10) {
+//                for ($i = $oldi; $i < 5; $i++) {
+//                    for ($j = $oldj; $j < 10; $j++) {
+//                        if (
+//                            $time_table_class[$i][$j - 2] != null
+//                            && $time_table_class[$i][$j - 1] != null
+//                            && $time_table_class[$i][$j] != null
+//                            && $time_table_class[$i][$j - 2]->subject_id == $time_table_class[$i][$j - 1]->subject_id
+//                            && $time_table_class[$i][$j - 1]->subject_id == $time_table_class[$i][$j]->subject_id
+//                        ) {
+//                            $oldi = $i;
+//                            $oldj = $j;
+//                            $lap = true;
+//                            break;
+//                        }
+//                    }
+//                    if ($lap) {
+//                        break;
+//                    }
+//                }
+//
+//                if ($lap) {
+//                    for ($newi = $oldi; $newi < 5; $newi++) {
+//                        $break = false;
+//                        for ($newj = $oldj; $newj < 10; $newj++) {
+//                            if ($time_table_class[$newi][$newj] != null
+//                                && $time_table_class[$newi][$newj]->subject_id != 7
+//                                && $time_table_class[$newi][$newj]->subject_id != 17
+//                                && $time_table_class[$newi][$newj]->subject_id != $time_table_class[$oldi][$oldj]->subject_id
+//                                && ($newi != $oldi || $newj != $oldj)) {
+//                                $temp = $time_table_class[$newi][$newj];
+//                                $time_table_class[$newi][$newj]->subject_id = $time_table_class[$oldi][$oldj]->subject_id;
+//                                $time_table_class[$newi][$newj]->teacher_id = $time_table_class[$oldi][$oldj]->teacher_id;
+//                                $time_table_class[$oldi][$oldj]->subject_id = $temp->subject_id;
+//                                $time_table_class[$oldi][$oldj]->teacher_id = $temp->teacher_id;
+//                                $break = true;
+//                                break;
+//                            }
+//                        }
+//                        if ($break) {
+//                            break;
+//                        }
+//                    }
+//                }
+//                if ($i == 5 && $j == 10) {
+//                    break;
+//                }
+//            }
+//        }
+        return $selection;
+    }
+
+    private function khuHocLienTiep($time_table_class)
+    {
+        $start_position = ['date' => 0, 'hour' => '2'];
+        while ($start_position['date'] < 5 && $start_position['hour'] < 10) {
+            $invalid_position = $this->timViTriTrung($time_table_class, $start_position);
+            if (empty($invalid_position)) break;
+            $next_valid_position = $this->timViTriMoi($time_table_class, $invalid_position);
+            if (empty($next_valid_position)) break;
+            $this->doiThongTin($time_table_class, $invalid_position, $next_valid_position);
+        }
+    }
+
+    /**
+     * @param array $time_table_class
+     * @param ar $start_position
+     * @return array $position['i','j']
+     */
+    private function timViTriTrung(array $time_table_class, array $start_position): array
+    {
+        $position = [];
+        for ($i = $start_position['date']; $i < 5; $i++) {
+            for ($j = $start_position['hour']; $j < 10; $j++) {
+                if ($j < 2) continue;
+                if (
+                    $time_table_class[$i][$j - 2] != null
+                    && $time_table_class[$i][$j - 1] != null
+                    && $time_table_class[$i][$j] != null
+                    && $time_table_class[$i][$j - 2]->subject_id == $time_table_class[$i][$j - 1]->subject_id
+                    && $time_table_class[$i][$j - 1]->subject_id == $time_table_class[$i][$j]->subject_id
+                ) {
+                    $position['date'] = $i;
+                    $position['hour'] = $j;
+                    return $position;
+                }
+            }
+        }
+        return $position;
+    }
+
+    private function timViTriMoi(array $time_table_class, array $invalid_position)
+    {
+        $next_valid_position = [];
+        $old_date = $invalid_position ['date'];
+        $old_hour = $invalid_position ['hour'];
+        for ($i = $old_date; $i < 5; $i++) {
+            for ($j = $old_hour; $j < 10; $j++) {
+                if ($time_table_class[$i][$j] != null
+                    && $time_table_class[$i][$j]->subject_id != 7
+                    && $time_table_class[$i][$j]->subject_id != 17
+                    && $time_table_class[$i][$j]->subject_id != $time_table_class[$old_date][$old_hour]->subject_id
+                    && ($i != $old_date || $j != $old_hour)) {
+                    $next_valid_position['date'] = $i;
+                    $next_valid_position['hour'] = $j;
+                    return $next_valid_position;
+                }
+            }
+        }
+
+        return $next_valid_position;
+    }
+
+    private function doiThongTin($time_table_class, $old_position, $new_position)
+    {
+        $temp_subject_id = $time_table_class[$new_position['date']][$new_position['hour']]->subject_id;
+        $temp_teacher_id = $time_table_class[$new_position['date']][$new_position['hour']]->teacher_id;
+        $time_table_class[$new_position['date']][$new_position['hour']]->subject_id = $time_table_class[$old_position['date']][$old_position['hour']]->subject_id;
+        $time_table_class[$new_position['date']][$new_position['hour']]->teacher_id = $time_table_class[$old_position['date']][$old_position['hour']]->teacher_id;
+        $time_table_class[$old_position['date']][$old_position['hour']]->subject_id = $temp_subject_id;
+        $time_table_class[$old_position['date']][$old_position['hour']]->teacher_id = $temp_teacher_id;
+    }
+
+    private function khuTrungLichGiaoVien(array $selection, $techers)
+    {
+        for ($date = 0; $date < 5; $date++) {
+            for ($unit = 0; $unit < 10; $unit++) {
+                for ($i = 1; $i < 30; $i++) {
+                    if ($selection[$i][$date][$unit] == null) continue;
+                    for ($j = $i + 1; $j <= 30; $j++) {
+                        if ($selection[$j][$date][$unit] == null) continue;
+                        if ($selection[$j][$date][$unit]->teacher_id == $selection[$i][$date][$unit]->teacher_id) {
+                            $temp = $selection[$j][$date][$unit];
+                            do {
+                                $new_date = rand(0, 4);
+                                $new_unit = rand(0, 9);
+                            } while ($selection[$j][$new_date][$new_unit] == null); 
+                            $selection[$j][$date][$unit]->teacher_id = $selection[$j][$new_date][$new_unit]->teacher_id;
+                            $selection[$j][$date][$unit]->subject_id = $selection[$j][$new_date][$new_unit]->subject_id;
+                            $selection[$j][$new_date][$new_unit]->teacher_id = $temp->teacher_id;
+                            $selection[$j][$new_date][$new_unit]->subject_id = $temp->subject_id;
                         }
                     }
-                }
-
-                if ($lap) {
-                    do {
-                        $newi = rand(0, 4);
-                        $newj = rand(0, 9);
-                        if ($time_table_class[$newi][$newj] != null
-                            && $time_table_class[$newi][$newj]->subject_id != 7
-                            && $time_table_class[$newi][$newj]->subject_id != 17
-                            && $time_table_class[$newi][$newj]->subject_id != $time_table_class[$oldi][$oldj]->subject_id
-                            && ($newi != $oldi || $newj != $oldj)) {
-                            $temp = $time_table_class[$newi][$newj];
-                            $time_table_class[$newi][$newj] = $time_table_class[$oldi][$oldj];
-                            $time_table_class[$oldi][$oldj] = $temp;
-                            $time_table_class[$oldi][$oldj]->date = $dates[$oldi];
-                            $time_table_class[$oldi][$oldj]->hour = $hours[$oldj];
-                            $time_table_class[$newi][$newj]->date = $dates[$newi];
-                            $time_table_class[$newi][$newj]->hour = $hours[$newj];
-                            break;
-                        }
-                    } while (true);
-                }
-                if ($i == 5 && $j == 10) {
-                    break;
                 }
             }
         }
         return $selection;
-    }
-
-    private function khuTrungGio(array $selection)
-    {
+//        for ($i=1; $i<=30; $i++){
+//            for ()
+//        }
     }
 
 }

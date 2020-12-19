@@ -34,6 +34,7 @@ Route::get('/admin/dashboard',[AdminController::class,'index']);
 Route::get('/admin/add-admin',[AdminController::class,'show']);
 Route::post('/admin/add-admin',[AdminController::class,'doAddAdmin']);
 Route::get('/admin/teacher',[TeacherController::class,'list']);
+Route::get('/admin/teacher/detail/{id}',[TeacherController::class,'get']);
 Route::post('/admin/teacher/add',[TeacherController::class,'add']);
 Route::post('/admin/teacher/edit',[TeacherController::class,'edit']);
 Route::get('/admin/teacher/delete',[TeacherController::class,'delete']);

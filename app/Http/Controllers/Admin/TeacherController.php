@@ -11,16 +11,39 @@ use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
-    public function list(){
+    public function get(int $id)
+    {
 
-        if(session('isLogin')!=true){
+        if (session('isLogin') != true) {
+            abort(404);
+        }
+
+
+
+        $teacher = Teacher::find($id);
+        $this->setBreadcrumb([
+            'dashboard' => '/admin/dashboard',
+            'teacher' => '/admin/teacher',
+            'detail' => '/admin/teacher/detail/'.$teacher->id,
+        ]);
+        $data = [];
+        $data['title'] = 'Detail Teacher';
+        $data['breadcrumb'] = $this->getBreadcrumb();
+        $data['teacher'] =$teacher;
+        return view('component.teacher.detail', $data);
+    }
+
+    public function list()
+    {
+
+        if (session('isLogin') != true) {
             abort(404);
         }
 
         $this->setBreadcrumb([
             'dashboard' => '/admin/dashboard',
             'teacher' => '/admin/teacher',
-            ]);
+        ]);
         $data = [];
         $data['title'] = 'Manage Teacher';
         $data['breadcrumb'] = $this->getBreadcrumb();
@@ -36,7 +59,7 @@ class TeacherController extends Controller
     public function add(Request $request)
     {
 
-        if(session('isLogin')!=true){
+        if (session('isLogin') != true) {
             abort(404);
         }
 
@@ -51,13 +74,13 @@ class TeacherController extends Controller
         $teacher->save();
         $teacher->subjects()->sync($subject_ids);
 
-        return redirect('/admin/teacher')->with('message','Add Teacher Success');
+        return redirect('/admin/teacher')->with('message', 'Add Teacher Success');
     }
 
     public function edit(Request $request)
     {
 
-        if(session('isLogin')!=true){
+        if (session('isLogin') != true) {
             abort(404);
         }
 
@@ -72,6 +95,6 @@ class TeacherController extends Controller
         $teacher->save();
         $teacher->subjects()->sync($subject_ids);
 
-        return redirect('/admin/teacher')->with('message','Add Teacher Success');
+        return redirect('/admin/teacher')->with('message', 'Add Teacher Success');
     }
 }

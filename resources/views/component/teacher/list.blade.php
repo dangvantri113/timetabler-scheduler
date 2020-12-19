@@ -24,8 +24,9 @@
                 <td class="teacher-birthday">{{$teacher->birthday}}</td>
                 <td class="teacher-position">{{$teacher->position}}</td>
                 <td class="action teacher-action">
-                    <a class="edit" href="#" onclick="editTeacher({{$teacher->id}})">Edit</a>
-                    <a class="delete" href="#" onclick="deleteTeacher({{$teacher->id}})">Delete</a>
+                    <a class="edit" href="/admin/teacher/detail/{{$teacher->id}}">Chi Tiết</a>
+                    <a class="edit" href="#" onclick="editTeacher({{$teacher->id}})">Sửa</a>
+                    <a class="delete" href="#" onclick="deleteTeacher({{$teacher->id}})">Xoá</a>
                 </td>
             </tr>
         @endforeach
