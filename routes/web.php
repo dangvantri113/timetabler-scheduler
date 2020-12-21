@@ -56,7 +56,7 @@ Route::post('/admin/klass/edit',[KlassController::class,'edit']);
 Route::post('/admin/klass/delete',[KlassController::class,'delete']);
 Route::get('/admin/timetable',[TimeTableController::class,'index']);
 Route::get('/admin/scheduling',[TimeTableController::class,'scheduling']);
+Route::get('/admin/doscheduling',[GAController::class,'doscheduling']);
 Route::get('/admin/timetable/random',[TimeTableController::class,'random']);
 Route::get('/admin/timetable/export-excel',[TimeTableController::class,'exportExcel']);
-Route::post('/admin/scheduling',[GAController::class,'doScheduling']);
 Route::get('/admin/timetable/view',[TimeTableController::class,'view']);

@@ -9,6 +9,27 @@
     <div class="admin-content">
         @include('component.side-bar')
         <div class="w-100">
+            <div class="teacher-info">
+                <div>
+                    <label>Họ Tên:</label><span>{{$teacher->name}}</span>
+                </div>
+                <div>
+                    <label>Email:</label><span>{{$teacher->email}}</span>
+                </div>
+                <div>
+                    <label>Giới tính: </label><span>{{$teacher->gender?"Nam":"Nữ"}}</span>
+                </div>
+                <div>
+                    <label>Ngày sinh:</label><span>{{$teacher->birthday}}</span>
+                </div>
+                <div>
+                    <label>Môn dạy:</label>
+                    @foreach($teacher->subjects as $subject)
+                        <span>{{$subject->name}}</span>
+                    @endforeach
+                </div>
+
+            </div>
             <table class="timetable m-auto">
                 <tr style="background: pink">
                     <th>Tiết / Thứ</th>

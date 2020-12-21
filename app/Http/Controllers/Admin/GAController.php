@@ -77,6 +77,7 @@ class GAController
         $dates = ['HAI', 'BA', 'TU', 'NAM', 'SAU'];
         $units = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         //khoi tao quan the ban dau
+        echo 'vui lòng chờ.....';
         $population = [];
         for ($i = 0; $i < 20; $i++) {
             $time_table = $this->initEmptyTimeTable($subjects, $teachers, $klasses, $dates, $units);
@@ -98,8 +99,6 @@ class GAController
 
         usort($population, [$this, 'soSanhGiaDoThichNghi']);
         $this->saveDatabase($population[0]);
-        die;
-
         return redirect('/admin/timetable/view');
         /**
          * Todo GA
@@ -454,7 +453,6 @@ class GAController
                 }
             }
         }
-        echo $diemTru . '/';
         $teacher_id_map = [];
         foreach ($time_table as $kass_id => $klass_time_table) {
             $teacher_ids = [];
@@ -475,7 +473,6 @@ class GAController
                 $diemTru += $this->trungGio($teacher_id_map[$i], $teacher_id_map[$j]);
             }
         }
-        echo $diemTru . '<br>';
         return $diemTru;
     }
 

@@ -19395,9 +19395,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\timetable-scheduler\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\timetable-scheduler\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\timetable-scheduler\resources\sass\admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /Users/t001950/projects/timetabler-scheduler/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/t001950/projects/timetabler-scheduler/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /Users/t001950/projects/timetabler-scheduler/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

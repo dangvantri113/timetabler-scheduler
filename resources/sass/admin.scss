@@ -1,156 +1,172 @@
 .admin-content {
-    display: flex;
-    height: 100%;
+  display: flex;
+  height: 100%;
 
-    .dashboard {
-        .menu-item {
-            font-size: 2rem;
-            display: inline-block;
-            width: 300px;
-            height: fit-content;
-            border: 1px solid black;
-            margin: 10px;
-            padding: 4px;
-            background-color: #E91E7E;
+  .dashboard {
+    .menu-item {
+      font-size: 2rem;
+      display: inline-block;
+      width: 300px;
+      height: fit-content;
+      border: 1px solid black;
+      margin: 10px;
+      padding: 4px;
+      background-color: #E91E7E;
 
-            a {
-                text-decoration: none;
-                color: #fff;
-
-                i {
-                    margin-right: 10px;
-                }
-            }
-        }
-
-    }
-
-    .side-bar {
-        padding: 10px;
-        background-color: #5bc0de;
+      a {
+        text-decoration: none;
         color: #fff;
 
-        ul {
-            margin-block-start: 0;
-            list-style: none;
-            padding-inline-start: 0;
-
-            li a {
-                text-decoration: none;
-                font-weight: bold;
-                color: #fff;
-            }
+        i {
+          margin-right: 10px;
         }
+      }
     }
 
-    .form-container {
-        padding-left: 10px;
+  }
 
-        form {
-            width: fit-content;
-            text-align: center;
-            border: 2px solid black;
-            border-radius: 3px;
-            padding-bottom: 10px;
-            padding-left: 10px;
-            padding-right: 10px;
-            margin-top: 10px;
+  .side-bar {
+    padding: 10px;
+    min-width: 160px;
+    background-color: #5bc0de;
+    color: #fff;
 
-            .field-group {
-                margin-top: 5px;
+    ul {
+      margin-block-start: 0;
+      list-style: none;
+      padding-inline-start: 0;
 
-                label {
-                    display: inline-block;
-                    text-transform: capitalize;
-                    text-align: left;
-                    margin-right: 5px;
-                    width: 80px;
-                }
-
-                select {
-                    width: 200px;
-                    option {
-                        text-transform: capitalize;
-                    }
-                }
-
-                input[type='submit'] {
-                    background-color: darkgreen;
-                    color: #fff;
-                    border: 0;
-                    padding: 5px;
-                }
-                input[type='radio'] {
-                    top: -3px;
-                    position: relative;
-                    margin-right: 4px;
-                }
-            }
-
-            .checkbox-container {
-                div {
-                    display: inline-block;
-
-                    label {
-                        margin-left: 3px;
-                    }
-                }
-
-                max-width: 400px;
-            }
-        }
+      li a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #fff;
+      }
     }
+  }
 
-    .list-container {
-        padding: 10px;
-        table {
-            tr {
-                td,th {
-                    border: solid 1px black;
-                    padding: 5px;
-                }
-                th {
-                    text-align: center !important;
-                }
-            }
+  .form-container {
+    padding-left: 10px;
+
+    form {
+      width: fit-content;
+      text-align: center;
+      border: 2px solid black;
+      border-radius: 3px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-top: 10px;
+
+      .field-group {
+        margin-top: 5px;
+
+        label {
+          display: inline-block;
+          text-transform: capitalize;
+          text-align: left;
+          margin-right: 5px;
+          width: 80px;
         }
-        .action {
-            a {
-                display: inline-block;
-                width: 60px;
-                text-align: center;
-                text-decoration: none;
-                color: #fff;
-            }
 
-            a:hover {
-                color: darkblue;
-            }
+        select {
+          width: 200px;
 
-            .edit {
-                background-color: #1c7430;
-            }
-
-            .delete {
-                background-color: #dc3545;
-            }
+          option {
+            text-transform: capitalize;
+          }
         }
-        .pagination {
-            font-size: 1rem;
+
+        input[type='submit'] {
+          background-color: darkgreen;
+          color: #fff;
+          border: 0;
+          padding: 5px;
         }
+
+        input[type='radio'] {
+          top: -3px;
+          position: relative;
+          margin-right: 4px;
+        }
+      }
+
+      .checkbox-container {
+        div {
+          display: inline-block;
+
+          label {
+            margin-left: 3px;
+          }
+        }
+
+        max-width: 400px;
+      }
     }
+  }
 
-    .timetable {
-        margin-top: 10px;
+  .teacher-info {
+    margin-left: 30px;
 
+    label {
+      width: 200px;
+      font-weight: bold;
+    }
+  }
+
+  .list-container {
+    padding: 10px;
+
+    table {
+      tr {
         td, th {
-            padding: 4px;
-            border: black solid 1px;
+          border: solid 1px black;
+          padding: 5px;
         }
+
+        th {
+          text-align: center !important;
+        }
+      }
     }
 
-    .add-message {
-        color: green;
+    .action {
+      a {
+        display: inline-block;
+        width: 60px;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+      }
+
+      a:hover {
+        color: darkblue;
+      }
+
+      .edit {
+        background-color: #1c7430;
+      }
+
+      .delete {
+        background-color: #dc3545;
+      }
     }
+
+    .pagination {
+      font-size: 1rem;
+    }
+  }
+
+  .timetable {
+    margin-top: 10px;
+
+    td, th {
+      padding: 4px;
+      border: black solid 1px;
+    }
+  }
+
+  .add-message {
+    color: green;
+  }
 
 }
